@@ -1,0 +1,25 @@
+from steganogan import SteganoGAN
+import os
+
+steganogan = SteganoGAN.load(architecture='dense')
+
+# get all images in the folder and encode them with the message "RENAISSANCE"
+# the output will be save in the stegoimages folder and will have stego adde to the begining of its name
+
+PATH_TO_IMAGES = "../server/website/images/"
+PATH_TO_STEGOIMAGES = "{}stegoimages/".format(PATH_TO_IMAGES)
+
+for filename in os.listdir(PATH_TO_IMAGES):
+    if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".ico", ".bmp")):
+        print(PATH_TO_IMAGES+filename)
+        steganogan.encode(PATH_TO_IMAGES+filename, "{}stego_{}".format(PATH_TO_STEGOIMAGES, filename), "RENAISSANCE")
+
+print("Done encoding stegoimages!")
+print("Now we check the decoding of those images ...")
+
+for filename in os.listdir(PATH_TO_STEGOIMAGES):
+    if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico", ".bmp")):
+        try:
+            print("Decoded message from {}: {}".format(filename, steganogan.decode("{}{}".format(PATH_TO_STEGOIMAGES, filename))))
+        except ValueError:
+            print("Could not decode message from {}".format(filename))
