@@ -11,21 +11,35 @@ def get_signature(input, private_key):
         input = input.encode('utf-8')
     return private_key.sign_deterministic(input).hex()
 
-def sign_website(path_to_website, private_key):
+def sign_website(path_to_website, private_key, evil):
     # Recursively find all the images (all formats) in the path_to_website (and subdirectories) and compute their signatures
     signature_list = []
-    for root, dirs, files in os.walk(path_to_website):
-        for file in files:
-            if file.endswith((".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico", ".bmp")):
-                with open(os.path.join(root, file), "rb") as f:
-                    signature_list.append(get_signature(f.read(), private_key))
-                    # print("Found image {} and signed it: {}".format(file, signature_list[-1]))
+    dir_to_website = os.path.dirname(path_to_website)
 
-    # Look into index.html and produce signatures for the <img> and favicons (if any) that point to external sources. 
-    # Use the tags as input for the signature (instead of the image content)
-    with open(os.path.join(path_to_website, "index.html"), "r") as f:
+    # Look into the file and produce signatures for the internal src of found <img> and favicons
+    with open(os.path.join(path_to_website), "r") as f:
         html = f.read()
         soup = BeautifulSoup(html, 'html.parser')
+
+        img_tags = soup.find_all("img")
+        for img_tag in img_tags:
+            if not img_tag['src'].startswith("http"):
+                with open(os.path.join(dir_to_website, img_tag['src']), "rb") as f:
+                    signature_list.append(get_signature(f.read(), private_key))
+
+        favicon_tag = soup.find("link", rel="icon")
+        if favicon_tag and not favicon_tag['href'].startswith("http"):
+            with open(os.path.join(dir_to_website, favicon_tag['href']), "rb") as f:
+                signature_list.append(get_signature(f.read(), private_key))
+
+    
+    
+    # Look into index.html and produce signatures for the <img> and favicons (if any) that point to external sources. 
+    # Use the tags as input for the signature (instead of the image content)
+    with open(os.path.join(path_to_website), "r") as f:
+        html = f.read()
+        soup = BeautifulSoup(html, 'html.parser')
+        
 
         # look for tags
         img_tags = soup.find_all("img")
@@ -40,7 +54,7 @@ def sign_website(path_to_website, private_key):
                 if link_tag['href'].startswith("http"):
                     signature_list.append(get_signature(str(link_tag), private_key))
                 else:
-                    with open(os.path.join(path_to_website, link_tag['href']), "rb") as f:
+                    with open(os.path.join(dir_to_website, link_tag['href']), "rb") as f:
                         signature_list.append(get_signature(f.read(), private_key))
                 
         signature_list = sorted(signature_list)
@@ -53,7 +67,7 @@ def sign_website(path_to_website, private_key):
     ###     ...
     ### </NAISS_signatures>
 
-    with open(os.path.join(path_to_website, "index.html"), "r") as f:
+    with open(os.path.join(path_to_website), "r") as f:
         html = f.read()
         soup = BeautifulSoup(html, 'html.parser')
         head_tag = soup.head # TODO: insert the signatures at the top of the body, not in the head
@@ -77,7 +91,13 @@ def sign_website(path_to_website, private_key):
         #             img_signature_tag['value'] = signature
         #             naiss_signature_tag.append(img_signature_tag)
 
-        with open(os.path.join(path_to_website, "index.html"), "w") as f2:
+        new_name = path_to_website
+        if evil:
+            new_name = path_to_website.replace("nosig", "evilsig")
+        else:
+            new_name = path_to_website.replace("nosig", "sig")
+
+        with open(os.path.join(new_name), "w") as f2:
             f2.write(str(soup.prettify()))
             f2.close()
         f.close()
@@ -98,11 +118,15 @@ if __name__ == "__main__":
 
     try:
         private_key = SigningKey.from_pem(open(args.private_key_path).read())
+        evil = False
+        if "evil" in args.private_key_path:
+            evil = True
     except:
         print("Private key not found")
     
-    if os.path.isdir(args.file_path):
-        sign_website(args.file_path, private_key)
-    elif args.file_path.endswith((".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico", ".bmp")):
+    if args.file_path.endswith((".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico", ".bmp")): # mainly used for testing
         print(get_signature(args.file_path, private_key))
+    else:
+        sign_website(args.file_path, private_key, evil)
+    
 
