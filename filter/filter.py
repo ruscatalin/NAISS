@@ -2,10 +2,16 @@ from ecdsa import SigningKey, VerifyingKey, NIST256p, keys
 import argparse
 from bs4 import BeautifulSoup, element # pip install beautifulsoup4
 import os
-import sign 
 
 RELATIVE_PATH_TO_PROJECT = None
 RELATIVE_PATH_TO_PUBLIC_KEY = None
+
+def pk_verify_sig(public_key, signature, to_verify):
+    # straightforward verification of a signature. the to_verify is bytes
+    try:
+        return public_key.verify(signature, to_verify)
+    except keys.BadSignatureError:
+        pass
 
 def verify_signature(input, signature):
     # if the signature is in fact a list of signatures, we loop through them until we find a match
