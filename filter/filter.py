@@ -3,8 +3,8 @@ import argparse
 from bs4 import BeautifulSoup, element # pip install beautifulsoup4
 import os
 
-RELATIVE_PATH_TO_PROJECT = None
-RELATIVE_PATH_TO_PUBLIC_KEY = None
+RELATIVE_PATH_TO_PROJECT = "filter/"
+RELATIVE_PATH_TO_PUBLIC_KEY = "public_key.pem"
 
 def pk_verify_sig(public_key, signature, to_verify):
     # straightforward verification of a signature. the to_verify is bytes
@@ -32,22 +32,16 @@ def verify_signature(input, signature):
         signature = bytes.fromhex(signature)
         print(signature)
 
-
+    if (type(input) == str):
+        input = input.encode('utf-8')
+    
     try:
-        public_key = VerifyingKey.from_pem(open(RELATIVE_PATH_TO_PUBLIC_KEY, "r").read())
+        absolute_path_to_key = os.path.join(RELATIVE_PATH_TO_PROJECT, RELATIVE_PATH_TO_PUBLIC_KEY)
+        public_key = VerifyingKey.from_pem(open(absolute_path_to_key, "r").read())
     except:
         print("Could not read public key from " + RELATIVE_PATH_TO_PUBLIC_KEY)
         return False
 
-    # if the input is a tag, we use its string representation as input for the signature
-    # if the input is a file, we use the file content as input for the signature
-
-    if input.startswith("<"):
-        input = input.encode('utf-8')
-    elif input.endswith((".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico", ".bmp")):
-        with open(RELATIVE_PATH_TO_PROJECT + input, "rb") as f:
-            input = f.read()
-    
     try:
         return public_key.verify(signature, input)
     except keys.BadSignatureError:
