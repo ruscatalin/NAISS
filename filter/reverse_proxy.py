@@ -11,8 +11,8 @@ import time
 
 app = Flask(__name__)
 
-WEB_SERVER = 'http://localhost:7777'
-# BUFFER = {}
+# WEB_SERVER = 'http://localhost:7777'
+WEB_SERVER = 'http://172.19.0.2:7777'
 WEBSITE = None
 
 
@@ -82,8 +82,9 @@ def get(path):
         icon_tag = WEBSITE.find("link", rel="icon")
 
         file_occurences = [img_tag for img_tag in img_tags if file_name in img_tag['src']]
-        if file_name in icon_tag['href']:
-            file_occurences.append(icon_tag)
+        if not icon_tag['href'].startswith("http"):
+            if file_name in icon_tag['href']:
+                file_occurences.append(icon_tag)
 
         if file_occurences is not []:
             try:

@@ -3,7 +3,7 @@ import argparse
 from bs4 import BeautifulSoup, element # pip install beautifulsoup4
 import os
 
-RELATIVE_PATH_TO_PROJECT = "filter/"
+RELATIVE_PATH_TO_PROJECT = "" # change to "filter/" if running locally
 RELATIVE_PATH_TO_PUBLIC_KEY = "public_key.pem"
 
 def pk_verify_sig(public_key, signature, to_verify):

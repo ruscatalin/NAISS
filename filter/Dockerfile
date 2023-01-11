@@ -18,22 +18,26 @@ ARG PROXYPY_PKG_PATH
 # COPY README.md /
 # COPY $PROXYPY_PKG_PATH /
 
-RUN apk update && apk add make && apk add bash && apk add curl
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH="/root/.cargo/bin:${PATH}"
+# RUN apk update && apk add make && apk add bash && apk add curl
+# RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# ENV PATH="/root/.cargo/bin:${PATH}"
 
 # RUN make lib-dep
-RUN pip install --upgrade pip && pip install tox
-RUN apk add git
+# RUN pip install --upgrade pip && pip install tox
+# RUN apk add git
 
-COPY proxy.py/requirements-release.txt .
-RUN pip install -r requirements-release.txt
-RUN rm requirements-release.txt
+# COPY proxy.py/requirements-release.txt .
+# RUN pip install -r requirements-release.txt
+# RUN rm requirements-release.txt
 
 # COPY proxy.py/ /proxy.py/
 # WORKDIR /proxy.py
 
+RUN pip install --upgrade pip
+RUN pip install beautifulsoup4
+RUN pip install ecdsa
 RUN pip install Flask
+RUN pip install requests
 COPY . .
 
 # RUN apk add curl
