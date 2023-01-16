@@ -12,7 +12,7 @@ import time
 app = Flask(__name__)
 
 # WEB_SERVER = 'http://localhost:7777'
-WEB_SERVER = 'http://172.19.0.2:7777'
+WEB_SERVER = 'http://naiss-server:7777' 
 WEBSITE = None
 
 

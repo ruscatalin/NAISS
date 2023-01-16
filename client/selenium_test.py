@@ -1,7 +1,7 @@
 import os
-import pytest
+# import pytest
 
-from selenium.webdriver import Chrome, ChromeOptions, Firefox, FirefoxOptions, Safari, Ie, IeOptions
+# from selenium.webdriver import Chrome, ChromeOptions, Firefox, FirefoxOptions, Safari, Ie, IeOptions
 from selenium.webdriver.common.by import By
 from seleniumwire import webdriver # pip install selenium-wire
 # the seleniumwire.cert needs to be manually to Truested Root Cert Authorities added to each browser in order to avoid certificate errors with external links
@@ -44,15 +44,15 @@ WEBSITES = [
 
 def get_driver(which_one):
     selenium_options = {
-        'ca_cert': 'client/seleniumwire.crt'
+        # 'ca_cert': 'client/seleniumwire.crt'
     }
     match which_one:
         case "chrome":
             options = webdriver.ChromeOptions()
             options.add_argument('--headless')
-            options.add_argument('--ignore-certificate-errors')
-            options.add_argument('--accept-insecure-certs')
-            return webdriver.Chrome(chrome_options=options, seleniumwire_options=selenium_options)
+            # options.add_argument('--ignore-certificate-errors')
+            # options.add_argument('--accept-insecure-certs')
+            return webdriver.Chrome(executable_path='/Users/rusadriancatalin/Desktop/SKEWL/research/NAISS/client/chromedrive/chromedriver', chrome_options=options, seleniumwire_options=selenium_options)
         case "firefox":
             options = webdriver.FirefoxOptions()
             options.add_argument('--headless')
@@ -63,14 +63,14 @@ def get_driver(which_one):
         case "edge":
             options = webdriver.EdgeOptions()
             options.add_argument('--headless')
-            return webdriver.Edge(options=options, seleniumwire_options=selenium_options)
+            return webdriver.Edge(executable_path='/Users/rusadriancatalin/Desktop/SKEWL/research/NAISS/client/edgedriver_mac64_m1/msedgedriver', options=options, seleniumwire_options=selenium_options)
 
 # options = webdriver.ChromeOptions()
 # options.add_argument('--headless')
 # driver =  webdriver.Chrome(chrome_options=options)
 website_names = {website: website.split("/")[2:][0].split(".")[0] for website in WEBSITES}
-driver = get_driver("chrome")
-driver.close()
+# driver = get_driver("chrome")
+# driver.close()
 
 
 def test_website(website):
@@ -152,27 +152,27 @@ def test_website(website):
 
 def test_websites(browser):
     global unfiltered_percentages, access_times, payload_sizes, driver, PORT
-    # PORT = 8899
-    # access_times = {website_names[website] : -1 for website in WEBSITES}
-    # unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
-    # payload_sizes = {website_names[website] : 0 for website in WEBSITES}
-    # driver = get_driver(browser)
-    # excel_row_index = 0
-    # for website in WEBSITES:
-    #     test_website(website)
-    #     website_name = website_names[website]
+    PORT = 8899
+    access_times = {website_names[website] : -1 for website in WEBSITES}
+    unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
+    payload_sizes = {website_names[website] : 0 for website in WEBSITES}
+    driver = get_driver(browser)
+    excel_row_index = 0
+    for website in WEBSITES:
+        test_website(website)
+        website_name = website_names[website]
 
-    #     # save the access times and unfiltered percentages to a xlsx file
-    #     # the website name, access time and unfiltered percentage all go in the same row
-    #     excel = pd.read_excel("client/test_results/filtered_{}_test_results.xlsx".format(browser))
-    #     new_row = [website_name, unfiltered_percentages[website_name], access_times[website_name], payload_sizes[website_name]]
-    #     excel.loc[excel_row_index] = new_row
-    #     excel_row_index += 1
+        # save the access times and unfiltered percentages to a xlsx file
+        # the website name, access time and unfiltered percentage all go in the same row
+        excel = pd.read_excel("client/test_results/filtered_{}_test_results.xlsx".format(browser))
+        new_row = [website_name, unfiltered_percentages[website_name], access_times[website_name], payload_sizes[website_name]]
+        excel.loc[excel_row_index] = new_row
+        excel_row_index += 1
 
-    #     excel.to_excel("client/test_results/filtered_{}_test_results.xlsx".format(browser), index=False)
+        excel.to_excel("client/test_results/filtered_{}_test_results.xlsx".format(browser), index=False)
 
-    # print("\u2713", "filtered_{} excel written\n".format(browser))
-    # driver.close() # close the driver
+    print("\u2713", "filtered_{} excel written\n".format(browser))
+    driver.quit() # close the driver
     PORT = 7777
     access_times = {website_names[website] : -1 for website in WEBSITES}
     unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
@@ -194,8 +194,9 @@ def test_websites(browser):
     print("\u2713", "unfiltered_{} excel written\n".format(browser))
     
         
-# browsers = ['chrome', 'firefox', 'safari', 'edge']
-browsers = ['chrome', 'firefox', 'edge']
+browsers = ['chrome', 'firefox', 'edge', 'safari']
+# browsers = ['chrome', 'firefox', 'edge']
+# browsers = ['safari']
 for browser in browsers:
     test_websites(browser)
 

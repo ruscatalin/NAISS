@@ -1,8 +1,8 @@
 # run the server and the filter in the same network (called naiss)
-# the server image is called naiss- and the filter's is in naiss-filter
+# the server image is called naiss-server and the filter's is in naiss-filter
 # the server should run on port 7777 and the filter on port 8899
 
-# use: just run docker-compose up
+# use: just run docker compose up
 
 version: '0.9'
 
@@ -15,7 +15,8 @@ services:
     container_name: "naiss-server"
     restart: always
     networks:
-      - naiss
+      naiss:
+        ipv4_address: 10.0.0.2
   naiss-filter:
     build: filter/
     ports:
@@ -24,11 +25,13 @@ services:
     container_name: "naiss-filter"
     restart: always
     networks:
-      - naiss
+      naiss:
+        ipv4_address: 10.0.0.3
 
 networks:
   naiss:
-    driver: bridge
+    driver: host # Use this for Mac
+    # driver: bridge # Use this for others
     ipam:
       config:
         - subnet: 10.0.0.1/16
