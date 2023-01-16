@@ -9,6 +9,8 @@ version: '0.9'
 services:
   naiss-server:
     build: server/
+    ports:
+      - "7777:7777"
     image: "naiss-server"
     container_name: "naiss-server"
     restart: always
