@@ -6,3 +6,5 @@ utils/for_report.py
 *pycache*
 
 *.log
+
+*.DS_Store*
