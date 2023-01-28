@@ -1,26 +1,22 @@
-# here we use matplotlib to plot the data we have collected in test_results.xlsx
-
+import os
 from matplotlib import pyplot as plt
 from matplotlib import colors as mcolors
-# import pyplot_themes as themes # pip install pyplot-themes
 import pandas as pd
 import numpy as np
+from PIL import Image
 
 
 f_chrome_excel = pd.read_excel("client/test_results/filtered_chrome_test_results.xlsx")
 f_firefox_excel = pd.read_excel("client/test_results/filtered_firefox_test_results.xlsx")
 f_edge_excel = pd.read_excel("client/test_results/filtered_edge_test_results.xlsx")
-# f_safari_excel = pd.read_excel("client/test_results/filtered_safari_test_results.xlsx")
 uf_chrome_excel = pd.read_excel("client/test_results/unfiltered_chrome_test_results.xlsx")
 uf_firefox_excel = pd.read_excel("client/test_results/unfiltered_firefox_test_results.xlsx")
 uf_edge_excel = pd.read_excel("client/test_results/unfiltered_edge_test_results.xlsx")
-# uf_safari_excel = pd.read_excel("client/test_results/unfiltered_safari_test_results.xlsx")
 
 excels = {
     "chrome": [f_chrome_excel, uf_chrome_excel],
     "firefox": [f_firefox_excel, uf_firefox_excel],
     "edge": [f_edge_excel, uf_edge_excel],
-    # "safari": [f_safari_excel, uf_safari_excel],
     "all": [f_chrome_excel, f_firefox_excel, f_edge_excel, uf_chrome_excel, uf_firefox_excel, uf_edge_excel]
 }
 
@@ -29,7 +25,7 @@ categories = {
     "has_stegoimages": ['clean', 'stego'],
     "image_type": ['external', 'internal'],
     "image_format": ['jpg', 'png'],
-    "browser": ['chrome', 'firefox', 'safari', 'edge'],
+    "browser": ['chrome', 'firefox', 'edge'],
     "is_filtered": ['filtered', 'unfiltered']
 }
 
@@ -104,8 +100,6 @@ def plot_measurement_by_category(measurement):
                 elif 'png' in website:
                     bins['png'].append(measure)
 
-            
-
     with plt.style.context('bmh'):
         plt.figure(figsize=(20, 8))
         index = 1
@@ -119,12 +113,12 @@ def plot_measurement_by_category(measurement):
             # compute a gradient color based on the value to plot
             vmin, vmax = 0, 3
             if measurement == 'size':
-                vmin, vmax = -50, 150
+                vmin, vmax = -50, 700
             gradient_color = mcolors.Normalize(vmin=vmin, vmax=vmax, clip=True)(value_to_plot)
             gradient_color = plt.cm.Reds(gradient_color)
             plt.bar(index, value_to_plot, color=gradient_color)
             index += 1
-        plt.vlines([3.5, 5.5, 7.5, 9.5, 13.5], ymin=0, ymax=1.15*max_avg, color='k', linestyles='dotted', linewidth=1)
+        plt.vlines([3.5, 5.5, 7.5, 9.5, 12.5], ymin=0, ymax=1.15*max_avg, color='k', linestyles='dotted', linewidth=1)
         plt.xticks(range(1, len(bins) + 1), bins.keys())
         plt.ylabel('Average {} ({})'.format(measurement, 'kB' if measurement == 'size' else 's'))
         plt.title('Average {} for each category'.format(measurement))
@@ -132,8 +126,54 @@ def plot_measurement_by_category(measurement):
         plt.savefig('client/test_results/{}_by_category.png'.format(measurement.replace(' ', '_')))
         plt.close()
 
+def plot_image_size_differences():
+    # plot the difference between the clean and stego image sizes from server/website/images
+    # the clean images are in the images folder, while the stegoimages are inside images/stegoimages
+
+    # get the clean image sizes
+    clean_image_sizes = {"bytes": [], "pixels_width": [], 'pixels_height': []}
+    for image in os.listdir('server/website/images'):
+        if image.endswith('.jpg') or image.endswith('.png'):
+            clean_image_sizes['bytes'].append(os.path.getsize('server/website/images/{}'.format(image)))
+            pixels = Image.open('server/website/images/{}'.format(image)).size
+            clean_image_sizes['pixels_width'].append(pixels[0])
+            clean_image_sizes['pixels_height'].append(pixels[1])
+
+    # get the stego image sizes
+    stego_image_sizes = {"bytes": [], "pixels_width": [], 'pixels_height': []}
+    for image in os.listdir('server/website/images/stegoimages'):
+        if image.endswith('.jpg') or image.endswith('.png'):
+            stego_image_sizes['bytes'].append(os.path.getsize('server/website/images/stegoimages/{}'.format(image)))
+            pixels = Image.open('server/website/images/stegoimages/{}'.format(image)).size
+            stego_image_sizes['pixels_width'].append(pixels[0])
+            stego_image_sizes['pixels_height'].append(pixels[1])
+    
+    # plot the difference between the clean and stego image sizes
+    with plt.style.context('bmh'):
+        plt.figure(figsize=(15, 8))
+        plt.bar(1, np.array(clean_image_sizes['bytes'], dtype=object).mean()/1000, color='orange')
+        plt.bar(2, np.array(stego_image_sizes['bytes'], dtype=object).mean()/1000, color='b')
+        plt.xticks([1, 2], ['clean images', 'stegoimages'])
+        plt.ylabel('Average image size (kB)')
+        plt.title('Average image size for clean vs stegoimages with small payload')
+        # plt.show()
+        plt.savefig('client/test_results/image_differences_bytes.png')
+        plt.close()
+
+        plt.figure(figsize=(15, 8))
+        plt.bar(1, np.array(clean_image_sizes['pixels_width'], dtype=object).mean(), color='orange')
+        plt.bar(2, np.array(stego_image_sizes['pixels_width'], dtype=object).mean(), color='orange')
+        plt.bar(3, np.array(clean_image_sizes['pixels_height'], dtype=object).mean(), color='b')
+        plt.bar(4, np.array(stego_image_sizes['pixels_height'], dtype=object).mean(), color='b')
+        plt.xticks([1, 2, 3, 4], ['clean width', 'stego width', 'clean height', 'stego height'])
+        plt.ylabel('Average image size (pixels)')
+        plt.title('Average image size for clean vs stegoimages')
+        # plt.show()
+        plt.savefig('client/test_results/image_differences_pixels.png')
+        plt.close()
 
 
-plot_unfiltered_percentage_by_signature()
-plot_measurement_by_category('access time')
-plot_measurement_by_category('size')
+# plot_unfiltered_percentage_by_signature()
+# plot_measurement_by_category('access time')
+# plot_measurement_by_category('size')
+# plot_image_size_differences()
