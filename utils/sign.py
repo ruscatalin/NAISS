@@ -1,10 +1,10 @@
-from ecdsa import SigningKey, NIST256p
+from ecdsa import SigningKey, NIST521p
 import argparse
 from bs4 import BeautifulSoup # pip install beautifulsoup4
 import os
 
 def generate_private_key():
-    return SigningKey.generate(curve=NIST256p)
+    return SigningKey.generate(curve=NIST521p)
 
 def get_signature(input, private_key):
     if type(input) != bytes:
