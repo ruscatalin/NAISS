@@ -4,6 +4,8 @@ from seleniumwire import webdriver # pip install selenium-wire
 import time
 import pandas as pd
 
+# This is to be ran from the root of the project
+
 HOSTNAME = "localhost"
 PORT = 8899
 
@@ -41,7 +43,7 @@ def get_driver(which_one):
         case "chrome":
             options = webdriver.ChromeOptions()
             options.add_argument('--headless')
-            return webdriver.Chrome(executable_path='/Users/rusadriancatalin/Desktop/SKEWL/research/NAISS/client/chromedrive/chromedriver', chrome_options=options, seleniumwire_options=selenium_options)
+            return webdriver.Chrome(executable_path='/Users/rusadriancatalin/Desktop/SKEWL/research/NAISS/client/chromedrive/chromedriver', chrome_options=options)
         case "firefox":
             options = webdriver.FirefoxOptions()
             options.add_argument('--headless')
@@ -49,7 +51,7 @@ def get_driver(which_one):
         case "edge":
             options = webdriver.EdgeOptions()
             options.add_argument('--headless')
-            return webdriver.Edge(executable_path='/Users/rusadriancatalin/Desktop/SKEWL/research/NAISS/client/edgedriver_mac64_m1/msedgedriver', options=options, seleniumwire_options=selenium_options)
+            return webdriver.Edge(executable_path='/Users/rusadriancatalin/Desktop/SKEWL/research/NAISS/client/edgedriver_mac64_m1/msedgedriver', options=options)
 
 website_names = {website: website.split("/")[2:][0].split(".")[0] for website in WEBSITES}
 
