@@ -5,11 +5,11 @@ steganogan = SteganoGAN.load(architecture='dense')
 
 # the output will be save in the stegoimages folder and will have stego added to the begining of its name
 
-PATH_TO_IMAGES = "../server/website/images/"
+PATH_TO_IMAGES = "server/website/images/"
 PATH_TO_STEGOIMAGES = "{}stegoimages/".format(PATH_TO_IMAGES)
 
 # read the payload from utils/magecartsample.js
-PAYLOAD = open("magecartsample.js", "r").read()
+PAYLOAD = open("utils/magecartsample.js", "r").read()
 
 for filename in os.listdir(PATH_TO_IMAGES):
     if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".ico", ".bmp")):
