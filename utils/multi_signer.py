@@ -15,12 +15,12 @@ for filename in os.listdir(path_to_clean):
     if filename.startswith("nosig"):
         print("Signing {}".format(filename))
         path_to_file = os.path.join(path_to_clean, filename)
-        subprocess.call(["python", path_to_signing_script, path_to_file, path_to_keys[0]]) # if not running on windows, use "python3" instead of "python"
-        subprocess.call(["python", path_to_signing_script, path_to_file, path_to_keys[1]])
+        subprocess.call(["python3", path_to_signing_script, path_to_file, path_to_keys[0]]) # if not running on windows, use "python3" instead of "python"
+        subprocess.call(["python3", path_to_signing_script, path_to_file, path_to_keys[1]])
 
 for filename in os.listdir(path_to_stego):
     if filename.startswith("nosig"):
         print("Signing {}".format(filename))
         path_to_file = os.path.join(path_to_stego, filename)
-        subprocess.call(["python", path_to_signing_script, path_to_file, path_to_keys[0]])
-        subprocess.call(["python", path_to_signing_script, path_to_file, path_to_keys[1]])
+        subprocess.call(["python3", path_to_signing_script, path_to_file, path_to_keys[0]])
+        subprocess.call(["python3", path_to_signing_script, path_to_file, path_to_keys[1]])
