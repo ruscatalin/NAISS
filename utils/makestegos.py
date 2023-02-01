@@ -11,6 +11,7 @@ PATH_TO_STEGOIMAGES = "{}stegoimages/".format(PATH_TO_IMAGES)
 # read the payload from utils/magecartsample.js
 PAYLOAD = open("utils/magecartsample.js", "r").read()
 
+# RUN FROM THE ROOT FOLDER OF THE PROJECT
 for filename in os.listdir(PATH_TO_IMAGES):
     if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".ico", ".bmp")):
         print(PATH_TO_IMAGES+filename)
