@@ -1,63 +1,75 @@
-from ecdsa import SigningKey, VerifyingKey, NIST256p, keys
+from ecdsa import VerifyingKey, NIST256p, keys
 import argparse
-from bs4 import BeautifulSoup, element # pip install beautifulsoup4
+from bs4 import BeautifulSoup, element
 import os
 
 RELATIVE_PATH_TO_PROJECT = "" # change to "filter/" if running locally
 RELATIVE_PATH_TO_PUBLIC_KEY = "public_key.pem"
 
-def pk_verify_sig(public_key, signature, to_verify):
-    # straightforward verification of a signature. the to_verify is bytes
-    try:
-        return public_key.verify(signature, to_verify)
-    except keys.BadSignatureError:
-        pass
-
 def verify_signature(input, signature):
-    # if the signature is in fact a list of signatures, we loop through them until we find a match
+    """
+    Verifies the signature of an input using the public key.
+
+    Parameters:
+        input (str or bytes): the input to verify the signature of. If str, it means it is the content of an HTML tag. If bytes, it means it is the content of an image.
+        signature (element.ResultSet or element.Tag or str): the signature to verify the input against. If element.ResultSet, it means it is a list of signatures.
+                                                                If element.Tag, it means it is the signature as an HTML tag. If str, it means it is the signature as a string.
+    
+    Returns:
+        bool: True if the signature is valid, else we return nothing and throw a keys.BadSignatureError.
+    """
+
+    # if the signature is in fact a list of signatures, we recursively loop through them until we find a match
     if type(signature) == element.ResultSet:
         for sig in signature:
             if verify_signature(input, sig):
                 return True
         return False
 
+    # transform the signature into bytes
     elif type(signature) == element.Tag:
-        # transform the signature into bytes
         signature = bytes.fromhex(signature['value'])
-        
-
     elif type(signature) == str:
         if len(signature) % 2 == 1:
             signature = "0" + signature
         signature = bytes.fromhex(signature)
-        print(signature)
 
+    # transform the input into bytes
     if (type(input) == str):
         input = input.encode('utf-8')
     
     try:
         absolute_path_to_key = os.path.join(RELATIVE_PATH_TO_PROJECT, RELATIVE_PATH_TO_PUBLIC_KEY)
-        public_key = VerifyingKey.from_pem(open(absolute_path_to_key, "r").read())
+        public_key = VerifyingKey.from_pem(open(absolute_path_to_key, "r").read())  # reading the public key
     except:
         print("Could not read public key from " + RELATIVE_PATH_TO_PUBLIC_KEY)
         return False
 
     try:
-        return public_key.verify(signature, input)
+        return public_key.verify(signature, input)  # the signature verification itself
     except keys.BadSignatureError:
         pass
 
 def filter_website(website_file):
-    # find each image element inside the index.html file and verify its signature
+    """
+    THIS METHOD IS NOT USED IN THE MAIN PROGRAM.
+    THIS IS TO BE USED FOR TESTING/LOCAL PURPOSES ONLY.
+    Filters a website by removing all images that do not have a valid signature. The given website file will be overwritten.
+
+    Parameters:
+        website_file (str): the path to the website file to filter.
+    """
+
+    # find each image element inside the given html file and verify its signature
     with open(os.path.join(RELATIVE_PATH_TO_PROJECT, website_file), "r") as f:
         html = f.read()
         soup = BeautifulSoup(html, 'html.parser')
         head_tag = soup.head
-        naiss_signature_tag = head_tag.find("naiss_signatures")
+        naiss_signature_tag = head_tag.find("naiss_signatures")  # all the signatures we can use for verification are in this tag
         if naiss_signature_tag is None:
             img_signature_tags = element.ResultSet(None)
         else:
-            img_signature_tags = naiss_signature_tag.find_all("img_signature")
+            img_signature_tags = naiss_signature_tag.find_all("img_signature")  # all the signature tags as a list
 
         img_tags = soup.find_all("img")
         img_tags_external = [img_tag for img_tag in img_tags if img_tag['src'].startswith("http")]
@@ -73,7 +85,7 @@ def filter_website(website_file):
 
         all_good = True
 
-        # Loop through the local tags and verify their signatures by looking for the corresponding local file.
+        # Loop through the local images tags and verify their signatures by looking for the corresponding local file.
         for img_tag in img_tags_local:
             source = None
             try:
@@ -82,15 +94,14 @@ def filter_website(website_file):
                 source = img_tag['href']
 
             try:
-                # print("Source signature:" + sign.get_signature(source, SigningKey.from_pem(open("private_key.pem").read())))
                 ok = verify_signature(source, img_signature_tags)
             except keys.BadSignatureError:
                 ok = False
             
             if not ok:
                 print("Signature verification failed for " + str(img_tag))
-                img_tag.decompose()
-                print("After " + str(img_tag))
+                img_tag.decompose()  # attempt to remove the image tag from the html file
+                print("After decomposition" + str(img_tag))
                 all_good = False
         
         # Loop through the external tags and verify their signature by using the tag itself as input.
@@ -103,7 +114,7 @@ def filter_website(website_file):
             if not ok:
                 print("Signature verification failed for " + str(img_tag))
                 img_tag.decompose()
-                print("After " + str(img_tag))
+                print("After decomposition" + str(img_tag))
                 all_good = False
 
         if all_good:
@@ -113,9 +124,6 @@ def filter_website(website_file):
             f2.write(str(soup.prettify()))
     
         f.close()
-
-# print(verify_signature("logo.ico",
-#  "db392f1d334758a8804d6974d2420eb5cbdeb4e1a6543526a3736558aa0a26ef0c275a666ced9c04928e73701099974f42b52", "public_key.pem"))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Filter a website.')

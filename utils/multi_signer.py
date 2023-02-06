@@ -1,6 +1,8 @@
-# This file just automates the signing procedures of our websites
-# It uses sign.py cli to sign the "nosig" websites inside ../server/website/websites/clean and ../server/website/websites/stego
-# It also uses both private keys to sign the websites (one of which is the evil one)
+"""
+ This file just automates the signing procedures of our websites
+ It uses sign.py cli to sign the "nosig" websites inside ../server/website/websites/clean and ../server/website/websites/stego
+ It also uses both private keys to sign the websites (one of which is the evil one)
+"""
 
 import os
 import subprocess
@@ -15,7 +17,7 @@ for filename in os.listdir(path_to_clean):
     if filename.startswith("nosig"):
         print("Signing {}".format(filename))
         path_to_file = os.path.join(path_to_clean, filename)
-        subprocess.call(["python3", path_to_signing_script, path_to_file, path_to_keys[0]])  #  use python if running on Windows
+        subprocess.call(["python3", path_to_signing_script, path_to_file, path_to_keys[0]])  #  use 'python' instead of 'python3' if running on Windows
         subprocess.call(["python3", path_to_signing_script, path_to_file, path_to_keys[1]])
 
 for filename in os.listdir(path_to_stego):
