@@ -173,7 +173,7 @@ def plot_image_size_differences():
         plt.close()
 
 
-plot_unfiltered_percentage_by_signature()
-plot_measurement_by_category('access time')
-plot_measurement_by_category('size')
+# plot_unfiltered_percentage_by_signature()
+# plot_measurement_by_category('access time')
+# plot_measurement_by_category('size')
 plot_image_size_differences()
