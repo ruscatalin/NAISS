@@ -9,10 +9,13 @@ steganogan = SteganoGAN.load(architecture='dense')
 PATH_TO_IMAGES = "../server/website/images/"
 PATH_TO_STEGOIMAGES = "{}stegoimages/".format(PATH_TO_IMAGES)
 
+PAYLOAD = open("magecartsample.js", "r").read()
+print("Payload size: {}".format(bytes(PAYLOAD, "utf-8").__sizeof__()))
+
 for filename in os.listdir(PATH_TO_IMAGES):
     if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".ico", ".bmp")):
         print(PATH_TO_IMAGES+filename)
-        steganogan.encode(PATH_TO_IMAGES+filename, "{}stego_{}".format(PATH_TO_STEGOIMAGES, filename), "RENAISSANCE")
+        steganogan.encode(PATH_TO_IMAGES+filename, "{}stego_{}".format(PATH_TO_STEGOIMAGES, filename), PAYLOAD)
 
 print("Done encoding stegoimages!")
 print("Now we check the decoding of those images ...")
