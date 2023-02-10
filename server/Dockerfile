@@ -6,5 +6,4 @@ FROM python:3.8.5-slim-buster
 COPY website .
 EXPOSE 7777
 
-# CMD python -m http.server 7777
 ENTRYPOINT [ "python", "-m", "http.server", "7777" ]
