@@ -40,7 +40,7 @@ import requests
 import pandas as pd
 
 results = {
-    search_term: {'title': [], 'link': [], 'result id':[], 'bibtex': []} for search_term in search_terms
+    search_term: {'title': [], 'link': [], 'result id':[]} for search_term in search_terms
 }
 
 params = {

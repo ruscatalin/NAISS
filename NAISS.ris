@@ -1,0 +1,539 @@
+TY  - JOUR
+TI  - Web services security (WS-Security)
+AU  - Atkinson, Bob
+AU  - Della-Libera, Giovanni
+AU  - Hada, Satoshi
+AU  - Hondo, Maryann
+AU  - Hallam-Baker, Phillip
+AU  - Klein, Johannes
+AU  - LaMacchia, Brian
+AU  - Leach, Paul
+AU  - Manferdelli, John
+AU  - Maruyama, Hiroshi
+AU  - others
+T2  - Specification, Microsoft Corporation
+AB  - WS-Security describes enhancements to SOAP messaging to provide quality of protection through message integrity, message confidentiality, and single message authentication. These mechanisms can be used to accommodate a wide variety of security models and encryption technologies.
+DA  - 2002///
+PY  - 2002
+ER  - 
+
+TY  - CHAP
+TI  - Security Technologies in E-commerce
+AU  - Zheng, Qin
+AU  - Li, Shundong
+AU  - Han, Yi
+AU  - Dong, Jinchun
+AU  - Yan, Lixiang
+AU  - Qin, Jun
+T2  - Introduction to E-commerce
+AB  - One of the key issues emerged in the process of transforming a traditional business into an electronic one is the security problem. Compared with tradition paper-aided transaction, information has to be transferred through public Internet network under the electronic environment. The record media of e-commerce has changed from paper to magnetic media. The characteristics that the information recorded on magnetic media can be easily copied, deleted and modified, and the openness of Internet result in that e-commerce information can be easily leaked, tampered, counterfeited and denied. In order to develop e-commerce, the confidentiality, integrity and authentication of e-commerce transaction data must be ensured. The technologies used to handle these issues mainly come from cryptography, and they include such technologies as encryption, authentication, hash, digital signature, firewall, intrusion detection etc. This chapter gives a brief description on those mentioned technologies which gives a basic understanding of how they work so that we can consciously apply these technologies to protect the security of e-commerce during the business process.
+DA  - 2009///
+PY  - 2009
+SP  - 135
+EP  - 168
+PB  - Springer
+ER  - 
+
+TY  - JOUR
+TI  - An efficient secure electronic payment system for e-commerce
+AU  - Hassan, Md Arif
+AU  - Shukur, Zarina
+AU  - Hasan, Mohammad Kamrul
+T2  - computers
+AB  - E-commerce implies an electronic purchasing and marketing process online by using typical Web browsers. As e-commerce is quickly developing on the planet, particularly in recent years, many areas of life are affected, particularly the improvement in how individuals regulate themselves non-financially and financially in different transactions. In electronic payment or e-commerce payment, the gateway is a major component of the structure to assure that such exchanges occur without disputes, while maintaining the common security over such systems. Most Internet payment gateways in e-commerce provide monetary information to customers using trusted third parties directly to a payment gateway. Nonetheless, it is recognized that the cloud Web server is not considered a protected entity. This article aims to develop an efficient and secure electronic payment protocol for e-commerce where consumers can immediately connect with the merchant properly. Interestingly, the proposed system does not require the customer to input his/her identity in the merchant’s website even though the customer can hide his/her identity and make a temporary identity to perform the service. It has been found that our protocol has much improved security effectiveness in terms of confidentiality, integrity, non-repudiation, anonymity availability, authentication, and authorization.
+DA  - 2020///
+PY  - 2020
+VL  - 9
+IS  - 3
+SP  - 66
+ER  - 
+
+TY  - CONF
+TI  - WebShield: Enabling Various Web Defense Techniques without Client Side Modifications.
+AU  - Li, Zhichun
+AU  - Tang, Yi
+AU  - Cao, Yinzhi
+AU  - Rastogi, Vaibhav
+AU  - Chen, Yan
+AU  - Liu, Bin
+AU  - Sbisa, Clint
+AB  - Today, web attacks are increasing in frequency, severity and sophistication. Existing solutions are either hostbased which suffer deployment problems or middlebox approaches that can only accommodate certain security protection mechanisms with limited protection. In this paper, we propose four design principles for general middlebox frameworks of web protection, and apply these principles to design WebShield, which can enable various host-based security mechanisms. In particular, we run all the JavaScript from remote web servers only at shadow browser instances inside the middlebox, and only run our trusted JavaScript rendering agent at client browsers. The trusted rendering agent turns browsers into a thin web terminal by reconstructing the encoded DOM of a webpage. We implement a prototype of WebShield. Evaluation demonstrates that a general JavaScript rendering agent can render webpages precisely and be just slightly slower than direct access. We further demonstrate that our design can work well with interactive web applications such as JavaScript games. WebShield can detect attacks deeply embedded in dynamic HTML pages including the ones in complex Web 2.0 applications, and can also detect both known and unknown vulnerabilities. We further show that WebShield is scalable for deployment.
+C3  - NDSS
+DA  - 2011///
+PY  - 2011
+ER  - 
+
+TY  - JOUR
+TI  - Unified Detection and Response Technology for Malicious Script-Based Attack
+AU  - Yoon, Soojin
+AU  - Choo, Hyun-lock
+AU  - Bae, Hanchul
+AU  - Kim, Hwankuk
+T2  - International Journal of Research Studies in Computer Science and Engineering (IJRSCSE)
+AB  - Dynamic functions using scripts are being implemented in web browsers, and the threat exists of attacks such as DoS or information leaks that exploit such functions. Especially, DoS has many case studies, but detecting script-based attacks using existing technologies is difficult because they are executed in web browsers and have no separate execution file. In this paper, we propose an integrated response technology that combines proxy-type detection and corresponding signature generation.
+DA  - 2016///
+PY  - 2016
+VL  - 3
+IS  - 4
+ER  - 
+
+TY  - CONF
+TI  - Verena: End-to-end integrity protection for web applications
+AU  - Karapanos, Nikolaos
+AU  - Filios, Alexandros
+AU  - Popa, Raluca Ada
+AU  - Capkun, Srdjan
+AB  - Web applications rely on web servers to protect the integrity of sensitive information. However, an attacker gaining access to web servers can tamper with the data and query computation results, and thus serve corrupted web pages to the user. Violating the integrity of the web page can have serious consequences, affecting application functionality and decision-making processes. Worse yet, data integrity violation may affect physical safety, as in the case of medical web applications which enable physicians to assign treatment to patients based on diagnostic information stored at the web server. This paper presents Verena, a web application platform that provides end-to-end integrity guarantees against attackers that have full access to the web and database servers. In Verena, a client's browser can verify the integrity of a web page by verifying the results of queries on data stored at the server. Verena provides strong integrity properties such as freshness, completeness, and correctness for a common set of database queries, by relying on a small trusted computing base. In a setting where there can be many users with different write permissions, Verena allows a developer to specify an integrity policy for query results based on our notion of trust contexts, and then enforces this policy efficiently. We implemented and evaluated Verena on top of the Meteor framework. Our results show that Verena can support real applications with modest overhead.
+C3  - 2016 IEEE Symposium on Security and Privacy (SP)
+DA  - 2016///
+PY  - 2016
+SP  - 895
+EP  - 913
+PB  - IEEE
+ER  - 
+
+TY  - JOUR
+TI  - Authenticity and revocation of web content using signed microformats and pki
+AU  - Pöhls, Henrich C
+AB  - Semantically annotating web content will ease its extraction and processing by third parties. But with this processing destroys the context of the original publication. We show that because of the loss of this context information the quality of the web content is diminished. In this work we propose a Microformat to store digitally signatures. Signed micro content preserves the content's context and allows viewers to verify the origin and integrity of the content even after processing by third parties. We further use existing methods from Public Key Infrastructures (PKI) to allow authors to revoke their consent to the publication of content. Using signed micro content this content revocation is detectable by viewers also after processing by third parties. While offering new control capabilities for authors, we still allow content to be free, unlike in some Digital Rights Management (DRM) approaches. We also shortly explain why our approach is beneficial for all the involved parties.
+DA  - 2007///
+PY  - 2007
+ER  - 
+
+TY  - CONF
+TI  - Why HTTPS Is Not Enough–A Signature-Based Architecture for Trusted Content on the Social Web
+AU  - Quasthoff, Matthias
+AU  - Sack, Harald
+AU  - Meinel, Christoph
+AB  - Easy to use, interactive web applications accumulating data from heterogeneous sources represent a recent trend on the World Wide Web, referred to as the Social Web. There however, security standards are often disregarded in favor of interface design or brand new features. This prevents the new services from gaining ground in the enterprise, in medical or e-government environments. We propose the deployment of XML Digital Signatures on web content and demonstrate how an architecture enabling for various security properties would look like. The solution proposed will benefit from the research on security engineering in Service-Oriented Architectures and thus allows for an in-depth analysis on the results.
+C3  - IEEE/WIC/ACM International Conference on Web Intelligence (WI'07)
+DA  - 2007///
+PY  - 2007
+SP  - 820
+EP  - 824
+PB  - IEEE
+ER  - 
+
+TY  - CONF
+TI  - Ensuring Web Integrity through Content Delivery Networks
+AU  - Lim, Zhao Xiang
+AU  - Ho, Xiu Qi
+AU  - Tan, Daniel Zhonghao
+AU  - Goh, Weihan
+AB  - The use of Hypertext Transfer Protocol Secure (HTTPS) has been widely adopted to ensure confidentiality, integrity and authenticity of information exchanged between web users and servers. Content Delivery Networks (CDNs) are a popular option to efficiently deliver content to any user on the web with promises of reduced latency. However, users have no way to verify if the intended content is served by the CDN even with HTTPS as users can only verify the connection to the CDN. To address this gap, we developed HTTP Authenticated Response Content (HARC), a solution to ensure end-to-end authenticity of response contents regardless of the presence of intermediate nodes such as CDNs.
+C3  - 2022 IEEE World AI IoT Congress (AIIoT)
+DA  - 2022///
+PY  - 2022
+SP  - 494
+EP  - 500
+PB  - IEEE
+ER  - 
+
+TY  - CONF
+TI  - An empirical study of the use of integrity verification mechanisms for web subresources
+AU  - Chapuis, Bertil
+AU  - Omolola, Olamide
+AU  - Cherubini, Mauro
+AU  - Humbert, Mathias
+AU  - Huguenin, Kévin
+AB  - Web developers can (and do) include subresources such as scripts, stylesheets and images in their webpages. Such subresources might be stored on content delivery networks (CDNs). This practice creates security and privacy risks, should a subresource be corrupted. The subresource integrity (SRI) recommendation, released in mid-2016 by the W3C, enables developers to include digests in their webpages in order for web browsers to verify the integrity of subresources before loading them. In this paper, we conduct the first large-scale longitudinal study of the use of SRI on the Web by analyzing massive crawls (≈ 3B URLs) of the Web over the last 3.5 years. Our results show that the adoption of SRI is modest (≈), but grows at an increasing rate and is highly influenced by the practices of popular library developers (e.g., Bootstrap) and CDN operators (e.g., jsDelivr). We complement our analysis about SRI with a survey of web developers (N=): It shows that a substantial proportion of developers know SRI and understand its basic functioning, but most of them ignore important aspects of the recommendation. The results of the survey also show that the integration of SRI by developers is mostly manual – hence not scalable and error prone. This calls for a better integration of SRI in build tools.
+C3  - Proceedings of The Web Conference 2020
+DA  - 2020///
+PY  - 2020
+SP  - 34
+EP  - 45
+ER  - 
+
+TY  - CONF
+TI  - A Robust Defense Against Content-Sniffing Xss Attacks
+AU  - Gebre, Misganaw Tadesse
+AU  - Lhee, Kyung-Suk
+AU  - Hong, ManPyo
+AB  - Many Web sites such as MySpace, Facebook and Twitter allow their users to upload files. However when a Web site's Content-Sniffing algorithm differs from a browser's Content-Sniffing algorithm, an attacker can often mount a Content-Sniffing XSS attack on the visitor. That is, by carefully embedding HTML code containing malicious script into a non-HTML file and uploading this file to the Web site, an attacker can deceive the visitor's browser into assuming the file as HTML file and run the script code. However Content-Sniffing XSS attack can be avoided if files uploaded on the server are checked for HTML codes. In this paper we propose a server-side ingress filter that aims to protect vulnerable browsers which may treat non-HTML files as HTML files. Our filter examines user-uploaded files against a set of potentially dangerous HTML elements (a set of regular expressions). The results of our experiment show that the proposed automata-based scheme is highly efficient and more accurate than existing signature-based approach.
+C3  - 6th International Conference on Digital Content, Multimedia Technology and its Applications
+DA  - 2010///
+PY  - 2010
+SP  - 315
+EP  - 320
+ER  - 
+
+TY  - CONF
+TI  - A signature-based intrusion detection system for web applications based on genetic algorithm
+AU  - Bronte, Robert
+AU  - Shahriar, Hossain
+AU  - Haddad, Hisham M
+AB  - Web application attacks are an extreme threat to the world's information technology infrastructure. A web application is generally defined as a client-server software application where the client uses a user interface within a web browser. Most users are familiar with web application attacks. For instance, a user may have received a link in an email that led the user to a malicious website. The most widely accepted solution to this threat is to deploy an Intrusion Detection System (IDS). Such a system currently relies on signatures of the predefined set of events matching with attacks. Issues still arise as all possible attack signatures may not be defined before deploying an IDS. Attack events may not fit with the pre-defined signatures. Thus, there is a need to detect new types of attacks with a mutated signature based detection approach. Most traditional literature works describe signature based IDSs for application layer attacks, but several works mention that not all attacks can be detected. It is well known that many security threats can be related to software or application development and design or implementation flaws. Given that fact, this work expands a new method for signature based web application layer attack detection. We apply a genetic algorithm to analyze web server and database logs and the log entries. The work contributes to the development of a mutated signature detection framework. The initial results show that the suggested approach can detect specific application layer attacks such as Cross-Site Scripting, SQL Injection and Remote File Inclusion attacks.
+C3  - Proceedings of the 9th International Conference on Security of Information and Networks
+DA  - 2016///
+PY  - 2016
+SP  - 32
+EP  - 39
+ER  - 
+
+TY  - JOUR
+TI  - An effective detection approach for phishing websites using URL and HTML features
+AU  - Aljofey, Ali
+AU  - Jiang, Qingshan
+AU  - Rasool, Abdur
+AU  - Chen, Hui
+AU  - Liu, Wenyin
+AU  - Qu, Qiang
+AU  - Wang, Yang
+T2  - Scientific Reports
+AB  - Today's growing phishing websites pose significant threats due to their extremely undetectable risk. They anticipate internet users to mistake them as genuine ones in order to reveal user information and privacy, such as login ids, pass-words, credit card numbers, etc. without notice. This paper proposes a new approach to solve the anti-phishing problem. The new features of this approach can be represented by URL character sequence without phishing prior knowledge, various hyperlink information, and textual content of the webpage, which are combined and fed to train the XGBoost classifier. One of the major contributions of this paper is the selection of different new features, which are capable enough to detect 0-h attacks, and these features do not depend on any third-party services. In particular, we extract character level Term Frequency-Inverse Document Frequency (TF-IDF) features from noisy parts of HTML and plaintext of the given webpage. Moreover, our proposed hyperlink features determine the relationship between the content and the URL of a webpage. Due to the absence of publicly available large phishing data sets, we needed to create our own data set with 60,252 webpages to validate the proposed solution. This data contains 32,972 benign webpages and 27,280 phishing webpages. For evaluations, the performance of each category of the proposed feature set is evaluated, and various classification algorithms are employed. From the empirical results, it was observed that the proposed individual features are valuable for phishing detection. However, the integration of all the features improves the detection of phishing sites with significant accuracy. The proposed approach achieved an accuracy of 96.76% with only 1.39% false-positive rate on our dataset, and an accuracy of 98.48% with 2.09% false-positive rate on benchmark dataset, which outperforms the existing baseline approaches.
+DA  - 2022///
+PY  - 2022
+VL  - 12
+IS  - 1
+SP  - 1
+EP  - 19
+ER  - 
+
+TY  - THES
+TI  - A novel approach for analyzing and classifying malicious web pages
+AU  - Hiremath, Panchakshari N
+AB  - Malicious webpages with JavaScript code that launch attacks on web browsers have
+become an increasing problem in recent years. JavaScript is a scripting language that
+allows developers to create sophisticated client-side interfaces for web applications.
+However, JavaScript code is also used to carry out attacks against the user’s browser such
+as stealing the user’s credentials or downloading additional malware. JavaScript detection
+tools and commercial anti-virus tools mostly use signature-based approaches to detecting
+JavaScript malware. Unfortunately, the dynamic nature of the JavaScript language and
+its tight integration with the browser make it difficult to detect and block malicious
+JavaScript code.
+This work presents a novel approach to analyzing and detecting malicious JavaScript code
+in webpages. Our method combines a static analysis algorithm and a runtime monitoring
+mechanism to extract rich features of JavaScript code. We have built several
+machine-learning models to classify the maliciousness of webpages based on the extracted
+features. The experiments on a dataset of 11,000 malicious and 11,000 benign samples
+demonstrate that our method achieves a great accuracy of 99.97 percentage. We also show
+that our method can be adopted into future browsers to provide real-time detection of
+malicious webpages to protect web users.
+DA  - 2021///
+PY  - 2021
+M3  - PhD Thesis
+PB  - University of Dayton
+ER  - 
+
+TY  - CONF
+TI  - SpyProxy: Execution-based Detection of Malicious Web Content.
+AU  - Moshchuk, Alexander
+AU  - Bragin, Tanya
+AU  - Deville, Damien
+AU  - Gribble, Steven D
+AU  - Levy, Henry M
+AB  - This paper explores the use of execution-based Web
+content analysis to protect users from Internet-borne
+malware. Many anti-malware tools use signatures to
+identify malware infections on a user’s PC. In contrast,
+our approach is to render and observe active Web con-
+tent in a disposable virtual machine before it reaches the
+user’s browser, identifying and blocking pages whose be-
+havior is suspicious. Execution-based analysis can de-
+fend against undiscovered threats and zero-day attacks.
+However, our approach faces challenges, such as achiev-
+ing good interactive performance, and limitations, such
+as defending against malicious Web content that contains
+non-determinism.
+To evaluate the potential for our execution-based
+technique, we designed, implemented, and measured
+a new proxy-based anti-malware tool called SpyProxy.
+SpyProxy intercepts and evaluates Web content in tran-
+sit from Web servers to the browser. We present the
+architecture and design of our SpyProxy prototype, fo-
+cusing in particular on the optimizations we developed
+to make on-the-fly execution-based analysis practical.
+We demonstrate that with careful attention to design, an
+execution-based proxy such as ours can be effective at
+detecting and blocking many of today’s attacks while
+adding only small amounts of latency to the browsing ex-
+perience. Our evaluation shows that SpyProxy detected
+every malware threat to which it was exposed, while
+adding only 600 milliseconds of latency to the start of
+page rendering for typical content.
+C3  - USENIX Security Symposium
+DA  - 2007///
+PY  - 2007
+SP  - 1
+EP  - 16
+ER  - 
+
+TY  - JOUR
+TI  - Intelligent defense against malicious javascript code
+AU  - Krueger, Tammo
+AU  - Rieck, Konrad
+T2  - PIK-Praxis der Informationsverarbeitung und Kommunikation
+AB  - JavaScript  is  a  popular  scripting  language  for  creating  dy-namic and interactive web pages.  Unfortunately, JavaScriptalso provides the ground for web-based attacks that exploitvulnerabilities in web browsers and unnoticeably infect userswith malicious software. Regular security tools, such as anti-virus scanners, increasingly fail to fend off this threat, as theyare unable to cope with the rapidly evolving diversity and ob-fuscation of these JavaScript attacks.In this article, we presentCujo, a learning-based systemfor detection and prevention of JavaScript attacks.  Embed-dedinawebproxy,Cujotransparently inspects web pagesand  blocks  the  delivery  of  malicious  JavaScript  code.    Alightweight static and dynamic analysis is performed, whichenables learning and detecting malicious patterns in the struc-ture and behavior of JavaScript code.  To operate the systemin practice we introduce an architecture for automatically col-lecting and sanitizing data for retrainingCujo.  We demon-strate the efficacy of this architecture in an empirical evalua-tion, whereCujoidentifies 93% of real attacks with few falsealarms – even if the attacks are present in benign web pagesduring training of the system.
+DA  - 2012///
+PY  - 2012
+VL  - 35
+IS  - 1
+SP  - 54
+ER  - 
+
+TY  - JOUR
+TI  - JSSignature: eliminating third-party-hosted JavaScript infection threats using digital signatures
+AU  - Nakhaei, Kousha
+AU  - Ansari, Fateme
+AU  - Ansari, Ebrahim
+T2  - SN Applied Sciences
+AB  - Today, third-party JavaScript resources are an indispensable part of the web platform. More than 88% of the world’s top websites include at least one JavaScript resource from a remote host. However, there is a great security risk behind using a third-party JavaScript resource, if an attacker can infect one of these remote JavaScript resources all websites those have included the script would be at risk. In this paper, we present JSSignature, an entirely at the client-side pure JavaScript framework in order to validate third-party JavaScript resources using a digital signature. Therefore, all included JavaScript resources are checked against the integrity, authentication and non-repudiation risks before the execution. In contrary to existing methods, JSSignature protects web pages regardless of third-party resource infection nature while it does not set any restrictions on trusted JavaScript providers. This approach has an acceptable one-time performance overhead and is an easily deployable add-in. We have validated the proposed solution by applying tests on an implemented version (https://iasbs.ac.ir/~ansari/jssignature/demo.html). A pre-published version of this paper is available at arXiv website (https://arxiv.org/pdf/1812.03939.pdf).
+DA  - 2020///
+PY  - 2020
+VL  - 2
+IS  - 1
+SP  - 1
+EP  - 11
+ER  - 
+
+TY  - CONF
+TI  - 12 Angry Developers-A Qualitative Study on Developers' Struggles with CSP
+AU  - Roth, Sebastian
+AU  - Gröber, Lea
+AU  - Backes, Michael
+AU  - Krombholz, Katharina
+AU  - Stock, Ben
+AB  - The Web has improved our ways of communicating, collaborating, teaching, and entertaining us and our fellow human beings. However, this cornerstone of our modern society is also one of the main targets of attacks, most prominently Cross-Site Scripting (XSS). A correctly crafted Content Security Policy (CSP) is capable of effectively mitigating the effect of those Cross-Site Scripting attacks. However, research has shown that the vast majority of all policies in the wild are trivially bypassable.
+
+To uncover the root causes behind the omnipresent misconfiguration of CSP, we conducted a qualitative study involving 12 real-world Web developers. By combining a semi-structured interview, a drawing task, and a programming task, we were able to identify the participant's misconceptions regarding the attacker model covered by CSP as well as roadblocks for secure deployment or strategies used to create a CSP.
+C3  - Proceedings of the 2021 ACM SIGSAC Conference on Computer and Communications Security
+DA  - 2021///
+PY  - 2021
+SP  - 3085
+EP  - 3103
+ER  - 
+
+TY  - JOUR
+TI  - A protection mechanism against malicious HTML and Javascript code in vulnerable web applications
+AU  - Liu, Shukai
+AU  - Yan, Xuexiong
+AU  - Wang, Qingxian
+AU  - Zhao, Xu
+AU  - Chai, Chuansen
+AU  - Sun, Yajing
+T2  - Mathematical Problems in Engineering
+AB  - The high-profile attacks of malicious HTML and JavaScript code have seen a dramatic increase in both awareness and exploitation in recent years. Unfortunately, exiting security mechanisms provide no enough protection. We propose a new protection mechanism named PMHJ based on the support of both web applications and web browsers against malicious HTML and JavaScript code in vulnerable web applications. PMHJ prevents the injection attack of HTML elements with a random attribute value and the node-split attack by an attribute with the hash value of the HTML element. PMHJ ensures the content security in web pages by verifying HTML elements, confining the insecure HTML usages which can be exploited by attackers, and disabling the JavaScript APIs which may incur injection vulnerabilities. PMHJ provides a flexible way to rein the high-risk JavaScript APIs with powerful ability according to the principle of least authority. The PMHJ policy is easy to be deployed into real-world web applications. The test results show that PMHJ has little influence on the run time and code size of web pages.
+DA  - 2016///
+PY  - 2016
+VL  - 2016
+ER  - 
+
+TY  - GEN
+TI  - Providing a fast, remote security service using hashlists of approved web objects
+AU  - Cappos, Justin
+AU  - Memon, Nasir
+AU  - Peddinti, Sai Teja
+AU  - Ross, Keith
+AB  - A security system and service, which improves the performance of SECaaS services, is described. A security server system tracks the content that has successfully passed through its security modules and distributes this information to the end user client devices as hashlist information. The remote client devices can then safely bypass the cloud for a significant fraction of Web object requests by using information on a locally stored hashlist to validate Web objects.
+DA  - 2016/01/26/
+PY  - 2016
+PB  - Google Patents
+N1  - <p>US Patent 9,246,929</p>
+ER  - 
+
+TY  - JOUR
+TI  - Pixastic: steganography based anti-phihsing browser plug-in
+AU  - Thiyagarajan, P
+AU  - Aghila, Gnanasekaran
+AU  - Venkatesan, V Prasanna
+T2  - arXiv preprint arXiv:1206.2445
+AB  - In spite of existence of many standard security mechanisms for ensuring secure e-Commerce business, users still fall prey for online attacks. One such simple but powerful attack is 'Phishing'. Phishing is the most alarming threat in the e-Commerce world and effective anti-phishing technique is the need of the hour. This paper focuses on a novel anti-phishing browser plug-in which uses information hiding technique - Steganography. A Robust Message based Image Steganography (RMIS) algorithm has been proposed. The same has been incorporated in the form of a browser plug-in (safari) called Pixastic. Pixastic is tested in an online banking scenario and it is compared with other well-known anti-phishing plug-in methods in practice. Various parameters such as robustness, usability and its behavior on various attacks have been analysed. From experimental results, it is evident that our method Pixastic performs well compared to other anti-phishing plug-ins.
+DA  - 2012///
+PY  - 2012
+ER  - 
+
+TY  - CONF
+TI  - Fostering the uptake of secure multiparty computation in e-commerce
+AU  - Catrina, Octavian
+AU  - Kerschbaum, Florian
+AB  - Secure multiparty computation (SMC) protocols enable a group of mutually distrustful parties to perform a joint computation with private inputs. Novel e-commerce applications have emerged that could benefit from strong privacy protection, e.g., benchmarking, auctions, and collaborative supply chain management and planning. However, the uptake of SMC in these applications is still rare. We argue that this is due to poor performance, functionality, and scalability, as well as architectures that do not meet the needs of e-commerce applications. This paper explores SMC approaches and research directions, aiming at providing better support for e-commerce applications.
+C3  - 2008 Third International Conference on Availability, Reliability and Security
+DA  - 2008///
+PY  - 2008
+SP  - 693
+EP  - 700
+PB  - IEEE
+ER  - 
+
+TY  - CONF
+TI  - Security testing for monitoring web service using Cloud
+AU  - Raj, Gaurav
+AU  - Mahajan, Manish
+AU  - Singh, Dheerendra
+AB  - Security testing of a web service is the most integral part of its existence in Web service life cycle monitoring. Through testing, this system can monitor the possibility of attacks and redesign the services using the considerations provided by monitoring system. There is a never ending need to produce cyber safe web services which can be trusted. Penetration Testing is a professional testing where the test engineer is responsible for auditing the web service for its ability to withstand security attacks. The present work provides a monitoring system which includes penetration testing for vulnerability/malware detection. We introduced the survey done for vulnerabilities found in WSLC phases, include sample testing methodologies and propose the monitoring framework to identify vulnerabilities in requests for accessing phases of web services launched by worlds wide users. The system architecture is a cost-effective solution to provide security from malware. This system introduces a perimeter defence strategy.
+C3  - 2018 International Conference on Advances in Computing and Communication Engineering (ICACCE)
+DA  - 2018///
+PY  - 2018
+SP  - 316
+EP  - 321
+PB  - IEEE
+ER  - 
+
+TY  - CONF
+TI  - Sanitization of Images Containing Stegomalware via Machine Learning Approaches.
+AU  - Zuppelli, Marco
+AU  - Manco, Giuseppe
+AU  - Caviglione, Luca
+AU  - Guarascio, Massimo
+AB  - In recent years, steganographic techniques have become increasingly exploited by malware to avoid
+detection and remain unnoticed for long periods. Among the various approaches observed in real attacks,
+a popular one exploits embedding malicious information within innocent-looking pictures. In this paper,
+we present a machine learning technique for sanitizing images containing malicious data injected via
+the Invoke-PSImage method. Specifically, we propose to use a deep neural network realized through a
+residual convolutional autoencoder to disrupt the malicious information hidden within an image without
+altering its visual quality. The experimental evaluation proves the effectiveness of our approach on a
+dataset of images injected with PowerShell scripts. Our tool removes the injected artifacts and inhibits
+the reconstruction of the scripts, partially recovering the initial image quality.
+C3  - ITASEC
+DA  - 2021///
+PY  - 2021
+SP  - 374
+EP  - 386
+ER  - 
+
+TY  - JOUR
+TI  - Protecting Users from Compromised Browsers and Form Grabbers
+AU  - Almasi, Sirvan
+AU  - Knottenbelt, William J
+AB  - With the increasing use of the internet we are
+always in reach of a browser and a website. Users are continu-
+ously feeding sensitive information (such as passwords, personal
+and credit card information) to websites. These browsers and
+websites are susceptible to attacks from compromised client-
+side code, the browser and the operating system itself. Such
+threats emanate from Man-in-the-Browser (MitB) malware and
+form grabbers that are able to steal information from HTML
+forms and manipulate the forms at the cost of the user, resulting
+in the loss of sensitive information and financial costs. Whilst
+defensive techniques such as detection and prevention have their
+own merits, an out-of-band system can have superior security
+and user experience benefits. In this paper we explore the idea of
+circumventing the threats through a mobile phone-based system
+that can protect the user from compromised browsers and form
+grabbers. We build on the work of deeID, a blockchain-based
+and out-of-band identification and authentication system. Our
+contributions are the design of an out-of-band system dubbed
+FormL3SS, a standardised messaging for information request and
+the novel combination of existing techniques with a blockchain-
+based identity system. Our implementation of FormL3SS demon-
+strates the capabilities of sending data securely to a trusted server.
+DA  - 2020///
+PY  - 2020
+ER  - 
+
+TY  - JOUR
+TI  - Identifying JavaScript skimmers on high-value websites
+AU  - Bower, Thomas
+AU  - Maffeis, Sergio
+AU  - Demetriou, Soteris
+T2  - Imperial College of Science, Technology and Medicine, Imperial College London
+AB  - JavaScript Skimmers are a new type of malware which operate by adding a
+small piece of code onto a legitimate website in order to exfiltrate private
+information such as credit card numbers to an attackers server, while also
+submitting the details to the legitimate site. They are impossible to detect just by
+looking at the web page since they operate entirely in the background of the
+normal page operation and display no obvious indicators to their presence.
+Skimmers entered the public eye in 2018 after a series of high-profile attacks on
+major retailers including British Airways, Newegg, and Ticketmaster, claiming the
+credit card details of hundreds of thousands of victims between them.
+To date, there has been little-to-no work towards preventing websites becoming
+infected with skimmers, and even less so for protecting consumers. In this
+document, we propose a novel and effective solution for protecting users from
+skimming attacks by blocking attempts to contact an attackers server with
+sensitive information, in the form of a Google Chrome web extension. Our
+extension takes a two-pronged approach, analysing both the dynamic behaviour of
+the script such as outgoing requests, as well as static analysis by way of a number
+of heuristic techniques on scripts loaded onto the page which may be indicative of
+a skimmer.
+DA  - 2019///
+PY  - 2019
+SP  - 1
+EP  - 72
+ER  - 
+
+TY  - CONF
+TI  - HTML integrity authentication based on fragile digital watermarking
+AU  - Li, Bo
+AU  - Li, Wei
+AU  - Chen, Yuan-Yuan
+AU  - Jiang, Dong-Dong
+AU  - Cui, Ying-Zhi
+AB  - In this paper, we put forward a Web site integrity authentication scheme based on fragile digital watermarking technique. Firstly, using the one-way hash function (SHA-1) to compute digital fingerprint of the document and then inserts the hash value to the Web page. When a user visits the Web page, the system extracts the watermark and comparing with the generated watermark automatically. This scheme can satisfy the basic needs of Web site's security integrity.
+C3  - 2009 IEEE International Conference on Granular Computing
+DA  - 2009///
+PY  - 2009
+SP  - 322
+EP  - 325
+PB  - IEEE
+ER  - 
+
+TY  - GEN
+TI  - Method and apparatus for providing geographically authenticated electronic documents
+AU  - Nye, Timothy G
+AB  - A method and apparatus for providing geographically authenticated electronic documents is disclosed. Authentication for attributes for an electronic document stored on a computer network are defined, the attributes comprise at least one attribute describing a geographic location associated with the electronic document. Authenticated attributes (e.g., geographic location) of electronic documents (e.g., Web pages) allow for more accurate geographic searching and filtering. An authenticated digital certificate is created and associated with an electronic document. The authenticated digital certificate can be stored within the electronic document, such as can be done with HTML tags on a Web page. The digital certificate can also be stored as a separate file associated with the electronic document, as a separate signed digital certificate and as a database record.
+DA  - 2007/06/19/
+PY  - 2007
+PB  - Google Patents
+N1  - <p>US Patent 7,233,942</p>
+ER  - 
+
+TY  - JOUR
+TI  - Trusted cloud computing with secure resources and data coloring
+AU  - Hwang, Kai
+AU  - Li, Deyi
+T2  - IEEE Internet Computing
+AB  - Trust and security have prevented businesses from fully accepting cloud platforms. To protect clouds, providers must first secure virtualized data center resources, uphold user privacy, and preserve data integrity. The authors suggest using a trust-overlay network over multiple data centers to implement a reputation system for establishing trust between service providers and data owners. Data coloring and software watermarking techniques protect shared data objects and massively distributed software modules. These techniques safeguard multi-way authentications, enable single sign-on in the cloud, and tighten access control for sensitive data in both public and private clouds.
+DA  - 2010///
+PY  - 2010
+VL  - 14
+IS  - 5
+SP  - 14
+EP  - 22
+ER  - 
+
+TY  - JOUR
+TI  - Toward secure and dependable storage services in cloud computing
+AU  - Wang, Cong
+AU  - Wang, Qian
+AU  - Ren, Kui
+AU  - Cao, Ning
+AU  - Lou, Wenjing
+T2  - IEEE transactions on Services Computing
+AB  - Cloud storage enables users to remotely store their data and enjoy the on-demand high quality cloud applications without the burden of local hardware and software management. Though the benefits are clear, such a service is also relinquishing users' physical possession of their outsourced data, which inevitably poses new security risks toward the correctness of the data in cloud. In order to address this new problem and further achieve a secure and dependable cloud storage service, we propose in this paper a flexible distributed storage integrity auditing mechanism, utilizing the homomorphic token and distributed erasure-coded data. The proposed design allows users to audit the cloud storage with very lightweight communication and computation cost. The auditing result not only ensures strong cloud storage correctness guarantee, but also simultaneously achieves fast data error localization, i.e., the identification of misbehaving server. Considering the cloud data are dynamic in nature, the proposed design further supports secure and efficient dynamic operations on outsourced data, including block modification, deletion, and append. Analysis shows the proposed scheme is highly efficient and resilient against Byzantine failure, malicious data modification attack, and even server colluding attacks.
+DA  - 2011///
+PY  - 2011
+VL  - 5
+IS  - 2
+SP  - 220
+EP  - 232
+ER  - 
+
+TY  - JOUR
+TI  - JS-SAN: defense mechanism for HTML5-based web applications against javascript code injection vulnerabilities
+AU  - Gupta, Shashank
+AU  - Gupta, Brij Bhooshan
+T2  - Security and Communication Networks
+AB  - This paper presents an injection and clustering-based sanitization framework, i.e. JS-SAN (JavaScript SANitizer) for the mitigation of JS code injection vulnerabilities. It generates an attack vector template by performing the clustering on the extracted JS attack vector payloads corresponding to their level of similarity. As a result, it then sanitizes the extracted JS attack vector template by an automated technique of placement of sanitizers in the source code of generated templates of web applications. We have also performed the deepest possible crawling of web pages for finding the possible user-injection points and injected the latest HTML5-based XSS attack vectors for testing the mitigation capability of our framework. The implementation of our design was done on the browser-side JavaScript library and tested as an extension on the Google Chrome. The attack mitigation capability of JS-SAN was evaluated by incorporating the support from a tested suite of open source web applications that are vulnerable to JS code injection vulnerabilities. The proposed framework validates its novelty by producing a less rate of false negatives and tolerable runtime overhead as compared to existing sanitization-based approaches. Copyright © 2016 John Wiley & Sons, Ltd.
+DA  - 2016///
+PY  - 2016
+VL  - 9
+IS  - 11
+SP  - 1477
+EP  - 1495
+ER  - 
+
+TY  - CONF
+TI  - Cujo: efficient detection and prevention of drive-by-download attacks
+AU  - Rieck, Konrad
+AU  - Krueger, Tammo
+AU  - Dewald, Andreas
+AB  - The JavaScript language is a core component of active and dynamic web content in the Internet today. Besides its great success in enhancing web applications, however, JavaScript provides the basis for so-called drive-by downloads---attacks exploiting vulnerabilities in web browsers and their extensions for unnoticeably downloading malicious software. Due to the diversity and frequent use of obfuscation in these attacks, static code analysis is largely ineffective in practice. While dynamic analysis and honeypots provide means to identify drive-by-download attacks, current approaches induce a significant overhead which renders immediate prevention of attacks intractable.
+
+In this paper, we present Cujo, a system for automatic detection and prevention of drive-by-download attacks. Embedded in a web proxy, Cujo transparently inspects web pages and blocks delivery of malicious JavaScript code. Static and dynamic code features are extracted on-the-fly and analysed for malicious patterns using efficient techniques of machine learning. We demonstrate the efficacy of Cujo in different experiments, where it detects 94% of the drive-by downloads with few false alarms and a median run-time of 500 ms per web page---a quality that, to the best of our knowledge, has not been attained in previous work on detection of drive-by-download attacks.
+C3  - Proceedings of the 26th Annual Computer Security Applications Conference
+DA  - 2010///
+PY  - 2010
+SP  - 31
+EP  - 39
+ER  - 
+

@@ -1,33 +1,22 @@
 {
     "blocking image steganography e-commerce": {
         "title": [
-            "Integration of BPCS Steganography and Visual Cryptography for Secure e-Pay",
-            "Online Secure Payment System Using Visual Cryptography and Steganography",
             "Pixastic: steganography based anti-phihsing browser plug-in"
         ],
         "link": [
-            "https://ijcset.net/docs/Volumes/volume5issue6/ijcset2015050608.pdf",
-            "https://www.noveltyjournals.com/upload/paper/Online%20Secure%20Payment%20System-547.pdf",
             "https://arxiv.org/abs/1206.2445"
         ],
         "result id": [
             "7m6eTn32Z-AJ",
-            "JVGM4og3VhwJ",
             "6QdxjWhrda8J"
         ]
     },
     "malicious hosting providers e-commerce": {
         "title": [
-            "Stronger Authentication in E-Commerce-How to protect even na\u0131ve Users against Phishing, Pharming, and MITM attacks",
-            "Method and system to detect externally-referenced malicious data for access and/or publication via a computer system"
         ],
         "link": [
-            "https://www.academia.edu/download/54365241/BUBMLSWAWWLHEN07.pdf#page=49",
-            "https://patents.google.com/patent/US7971245B2/en"
         ],
         "result id": [
-            "QiMQXD8HEFEJ",
-            "DjJ4eX4ySb8J"
         ]
     },
     "compromised hosting providers e-commerce": {
@@ -48,21 +37,16 @@
     },
     "MageCart defense e-commerce": {
         "title": [
-            "Obfuscation Techniques for Magecart Detection and Prevention",
-            "Security testing for monitoring web service using Cloud",
             "Sanitization of Images Containing Stegomalware via Machine Learning Approaches.",
             "Protecting Users from Compromised Browsers and Form Grabbers",
             "Identifying JavaScript skimmers on high-value websites"
         ],
         "link": [
-            "https://www.academia.edu/download/80820892/V10I2202107.pdf",
-            "https://ieeexplore.ieee.org/abstract/document/8441734/",
             "https://ceur-ws.org/Vol-2940/paper31.pdf",
             "https://www.researchgate.net/profile/Sirvan-Almasi/publication/339532059_Protecting_Users_from_Compromised_Browsers_and_Form_Grabbers/links/5f303741458515b72911e9f0/Protecting-Users-from-Compromised-Browsers-and-Form-Grabbers.pdf",
             "https://www.imperial.ac.uk/media/imperial-college/faculty-of-engineering/computing/public/1819-ug-projects/BowerT-Industry-project-identifying-JavaScript-skimmers-on-high-value-websites.pdf"
         ],
         "result id": [
-            "z7yv7U6KJnkJ",
             "7U10Vb8gUyAJ",
             "UPW98pOy_P4J",
             "TH50lBsrsXoJ",
@@ -94,15 +78,9 @@
         ]
     },
     "end to end integrity e-commerce": {
-        "title": [
-            "Digital chain of trust method for electronic commerce"
-        ],
-        "link": [
-            "https://patents.google.com/patent/US20020065695A1/en"
-        ],
-        "result id": [
-            "lGG_b_O4pAcJ"
-        ]
+        "title": [],
+        "link": [],
+        "result id": []
     },
     "end to end authenticity e-commerce": {
         "title": [],
@@ -111,17 +89,14 @@
     },
     "secure web application host": {
         "title": [
-            "Securing web application code by static analysis and runtime protection",
             "You are what you include: large-scale evaluation of remote javascript inclusions",
             "Trusted cloud computing with secure resources and data coloring"
         ],
         "link": [
-            "https://dl.acm.org/doi/abs/10.1145/988672.988679",
             "https://dl.acm.org/doi/abs/10.1145/2382196.2382274",
             "https://ieeexplore.ieee.org/abstract/document/5562490/"
         ],
         "result id": [
-            "7xLPeWqdk5sJ",
             "Bk-Ih-eGoX4J",
             "yWCcTFuk3XcJ"
         ]
@@ -149,42 +124,24 @@
     },
     "code injection defense": {
         "title": [
-            "Secure and practical defense against code-injection attacks using software dynamic translation",
-            "JS\u2010SAN: defense mechanism for HTML5\u2010based web applications against javascript code injection vulnerabilities",
-            "Cross-Site Scripting (XSS) attacks and defense mechanisms: classification and state-of-the-art",
-            "Securing web applications from injection and logic vulnerabilities: Approaches and challenges"
+            "JS\u2010SAN: defense mechanism for HTML5\u2010based web applications against javascript code injection vulnerabilities"
         ],
         "link": [
-            "https://dl.acm.org/doi/abs/10.1145/1134760.1134764",
-            "https://onlinelibrary.wiley.com/doi/abs/10.1002/sec.1433",
-            "https://link.springer.com/article/10.1007/s13198-015-0376-0",
-            "https://www.sciencedirect.com/science/article/pii/S0950584916300234"
+            "https://onlinelibrary.wiley.com/doi/abs/10.1002/sec.1433"
         ],
         "result id": [
-            "uyzi3VqldeoJ",
-            "-6e9nI8GF3UJ",
-            "0EEimg7PQP4J",
-            "R3EuLspo15EJ"
+            "-6e9nI8GF3UJ"
         ]
     },
     "code injection prevention": {
         "title": [
-            "Defending against injection attacks through context-sensitive string evaluation",
             "Cujo: efficient detection and prevention of drive-by-download attacks",
-            "Automatically hardening web applications using precise tainting",
-            "Blueprint: Robust prevention of cross-site scripting attacks for existing browsers"
         ],
         "link": [
-            "https://link.springer.com/chapter/10.1007/11663812_7",
             "https://dl.acm.org/doi/abs/10.1145/1920261.1920267",
-            "https://link.springer.com/chapter/10.1007/0-387-25660-1_20",
-            "https://ieeexplore.ieee.org/abstract/document/5207654/"
         ],
         "result id": [
-            "TbnYPGK1o1gJ",
             "wRCHOSvguSUJ",
-            "7vqL52de6jQJ",
-            "tRFFhsYSQQcJ"
         ]
     }
 }

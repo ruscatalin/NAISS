@@ -30,8 +30,8 @@
             "!https://www.shanlax.com/wp-content/uploads/SIJ_ASH_Sep2018_V6_N1_021.pdf",
             "!https://link.springer.com/article/10.1007/s11042-023-14526-7",
             "!https://www.sciencedirect.com/science/article/pii/S0167739X21001850",
-            "https://ijcset.net/docs/Volumes/volume5issue6/ijcset2015050608.pdf",
-            "https://www.noveltyjournals.com/upload/paper/Online%20Secure%20Payment%20System-547.pdf",
+            "!https://ijcset.net/docs/Volumes/volume5issue6/ijcset2015050608.pdf",
+            "!https://www.noveltyjournals.com/upload/paper/Online%20Secure%20Payment%20System-547.pdf",
             "!https://pdfs.semanticscholar.org/ac80/80a8f3b2f7e3afd85f6c7161c50fdbcca143.pdf",
             "https://arxiv.org/abs/1206.2445",
             "!D https://scholar.archive.org/work/zakp5i6tcjepzjaluk4xytbor4/access/wayback/http://www.ijcscn.com/Documents/Volumes/vol5issue5/ijcscn2015050508.pdf",
@@ -93,7 +93,7 @@
         ],
         "link": [
             "!https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=8891558f5d475bfabfb7aa93242ad48b6f627634",
-            "https://www.academia.edu/download/54365241/BUBMLSWAWWLHEN07.pdf#page=49",
+            "!https://www.academia.edu/download/54365241/BUBMLSWAWWLHEN07.pdf#page=49",
             "!https://www.torrossa.com/gs/resourceProxy?an=3183386&publisher=FZ5922#page=58",
             "!https://dl.acm.org/doi/abs/10.1145/2488388.2488405",
             "!https://www.tandfonline.com/doi/abs/10.1080/07366980903132740",
@@ -111,7 +111,7 @@
             "!https://link.springer.com/article/10.1007/s11277-015-3082-y",
             "!https://patents.google.com/patent/US9659175B2/en",
             "!https://patents.google.com/patent/US7860755B2/en",
-            "https://patents.google.com/patent/US7971245B2/en"
+            "!https://patents.google.com/patent/US7971245B2/en"
         ],
         "result id": [
             "oLoHAjE1wL8J",
@@ -299,7 +299,7 @@
             "Identifying JavaScript skimmers on high-value websites"
         ],
         "link": [
-            "https://www.academia.edu/download/80820892/V10I2202107.pdf",
+            "!https://www.academia.edu/download/80820892/V10I2202107.pdf",
             "!https://search.proquest.com/openview/b513e8f0e81a844c43ea60139172a4cd/1?pq-origsite=gscholar&cbl=18750&diss=y",
             "!https://www.sciencedirect.com/science/article/pii/S1361372319300752",
             "!https://www.researchgate.net/profile/Mohammed-Farik/publication/355166997_End-User_Awareness_and_Training_A_Vital_First_Step_for_Cybersecurity/links/6162bb16e7993f536cb6fc3d/End-User-Awareness-and-Training-A-Vital-First-Step-for-Cybersecurity.pdf",
@@ -311,7 +311,7 @@
             "!https://arxiv.org/abs/2204.07107",
             "!https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/natislaw11&section=5",
             "!https://link.springer.com/chapter/10.1007/978-1-4842-5808-8_2",
-            "https://ieeexplore.ieee.org/abstract/document/8441734/",
+            "!https://ieeexplore.ieee.org/abstract/document/8441734/",
             "!https://books.google.com/books?hl=en&lr=lang_en&id=a-7gDwAAQBAJ&oi=fnd&pg=PR3&dq=MageCart+defense+e-commerce&ots=PoJF2Up3Ms&sig=4e8LH5VY2SfjYwnz-44GaSnmPhs",
             "!https://link.springer.com/chapter/10.1007/978-3-030-22351-9_10",
             "https://ceur-ws.org/Vol-2940/paper31.pdf",
@@ -528,7 +528,7 @@
             "!https://www.academia.edu/download/49518931/7-Niranjanamurthy-Analysis_of_E-Commerce_and_M-Commerce_Advantages.pdf",
             "!https://www.researchgate.net/profile/Scarlet-Schwiderski-Grosche/publication/3364690_Secure_mobile_commerce/links/555f1e1008ae6f4dcc8f8cb0/Secure-mobile-commerce.pdf",
             "!https://ieeexplore.ieee.org/abstract/document/8604166/",
-            "https://patents.google.com/patent/US20020065695A1/en",
+            "!https://patents.google.com/patent/US20020065695A1/en",
             "!https://ieeexplore.ieee.org/abstract/document/4680335/",
             "!https://www.skylineuniversity.ac.ae/pdf/ecommerce/V5I6201647.pdf",
             "!https://www.sciencedirect.com/science/article/pii/S1574119205000568"
@@ -651,7 +651,7 @@
         ],
         "link": [
             "!https://books.google.com/books?hl=en&lr=lang_en&id=NSBHAAAAQBAJ&oi=fnd&pg=PT13&dq=secure+web+application+host&ots=5tqQYzI6AM&sig=bZZN5F6r7hSw1dGA7S7F5-Ix_wM",
-            "https://dl.acm.org/doi/abs/10.1145/988672.988679",
+            "!https://dl.acm.org/doi/abs/10.1145/988672.988679",
             "!https://www.usenix.org/events/sec03/tech/full_papers/provos/provos_html",
             "!https://patents.google.com/patent/US6584569B2/en",
             "https://link.springer.com/chapter/10.1007/0-387-25660-1_20",
@@ -926,7 +926,7 @@
             "Linux kernel vulnerabilities: State-of-the-art defenses and open problems"
         ],
         "link": [
-            "https://dl.acm.org/doi/abs/10.1145/1134760.1134764",
+            "!https://dl.acm.org/doi/abs/10.1145/1134760.1134764",
             "!https://www.usenix.org/event/sec09/tech/full_papers/ratanaworabhan.pdf",
             "https://onlinelibrary.wiley.com/doi/abs/10.1002/sec.1433",
             "!https://dl.acm.org/doi/abs/10.1145/948109.948147",
@@ -936,8 +936,8 @@
             "!https://dl.acm.org/doi/abs/10.1145/2818000.2818016",
             "!https://dl.acm.org/doi/abs/10.1145/1966913.1966919",
             "!https://books.google.com/books?hl=en&lr=lang_en&id=Spm7UgBwzjIC&oi=fnd&pg=PR3&dq=code+injection+defense&ots=k15DTKinfL&sig=5_NvhrjJDNPKS6tmErREsUSP-yE",
-            "https://link.springer.com/article/10.1007/s13198-015-0376-0",
-            "https://www.sciencedirect.com/science/article/pii/S0950584916300234",
+            "!https://link.springer.com/article/10.1007/s13198-015-0376-0",
+            "!https://www.sciencedirect.com/science/article/pii/S0950584916300234",
             "!https://www.sciencedirect.com/science/article/pii/S1383762122000212",
             "!https://link.springer.com/chapter/10.1007/978-1-4614-0977-9_5",
             "!http://webblaze.cs.berkeley.edu/papers/nadji-saxena-song.pdf",
@@ -1004,13 +1004,13 @@
             "!https://www.usenix.org/event/sec09/tech/full_papers/ratanaworabhan.pdf",
             "!https://dl.acm.org/doi/abs/10.1145/948109.948147",
             "!http://www.cc.gatech.edu/fac/Alex.Orso/papers/halfond.viegas.orso.ISSSE06.pdf",
-            "https://link.springer.com/chapter/10.1007/11663812_7",
+            "!https://link.springer.com/chapter/10.1007/11663812_7",
             "!https://ieeexplore.ieee.org/abstract/document/7163058/",
             "https://dl.acm.org/doi/abs/10.1145/1920261.1920267",
             "!https://patents.google.com/patent/US8201246B1/en",
             "!https://link.springer.com/chapter/10.1007/978-3-540-87403-4_1",
-            "https://link.springer.com/chapter/10.1007/0-387-25660-1_20",
-            "https://ieeexplore.ieee.org/abstract/document/5207654/",
+            "!https://link.springer.com/chapter/10.1007/0-387-25660-1_20",
+            "!https://ieeexplore.ieee.org/abstract/document/5207654/",
             "!https://dl.acm.org/doi/abs/10.1145/1101908.1101935",
             "!https://ieeexplore.ieee.org/abstract/document/1550996/",
             "!https://link.springer.com/chapter/10.1007/978-3-319-62105-0_11",
