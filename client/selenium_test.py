@@ -41,7 +41,7 @@ def get_driver(which_one):
         case "chrome":
             options = webdriver.ChromeOptions()
             options.add_argument('--headless')
-            return webdriver.Chrome(executable_path='/Users/rusadriancatalin/Desktop/SKEWL/research/NAISS/client/chromedrive/chromedriver', chrome_options=options)
+            return webdriver.Chrome(executable_path='client/chromedrive/chromedriver', chrome_options=options)
         case "firefox":
             options = webdriver.FirefoxOptions()
             options.add_argument('--headless')
@@ -49,7 +49,7 @@ def get_driver(which_one):
         case "edge":
             options = webdriver.EdgeOptions()
             options.add_argument('--headless')
-            return webdriver.Edge(executable_path='/Users/rusadriancatalin/Desktop/SKEWL/research/NAISS/client/edgedriver_mac64_m1/msedgedriver', options=options)
+            return webdriver.Edge(executable_path='client/edgedriver_mac64_m1/msedgedriver', options=options)
 
 website_names = {website: website.split("/")[2:][0].split(".")[0] for website in WEBSITES}
 
