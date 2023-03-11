@@ -6,7 +6,7 @@ steganogan = SteganoGAN.load(architecture='dense')
 # We get all images in the server/website/images folder and encode them with the message "RENAISSANCE"
 # The encoding output will be saved in the stegoimages folder and will have 'stego' added to the begining of its name
 
-PATH_TO_IMAGES = "../server/website/images/"
+PATH_TO_IMAGES = "server/website/images/"
 PATH_TO_STEGOIMAGES = "{}stegoimages/".format(PATH_TO_IMAGES)
 
 for filename in os.listdir(PATH_TO_IMAGES):
