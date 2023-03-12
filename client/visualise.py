@@ -101,7 +101,7 @@ def plot_measurement_by_category(measurement):
                     bins['png'].append(measure)
 
     with plt.style.context('bmh'):
-        plt.figure(figsize=(20, 8))
+        plt.figure(figsize=(15, 8))
         index = 1
         max_avg = 0
         for category in bins:
