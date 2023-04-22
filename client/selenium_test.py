@@ -1,7 +1,9 @@
+import datetime
 from selenium.webdriver.common.by import By
 from seleniumwire import webdriver # pip install selenium-wire
 import time
 import pandas as pd
+import openpyxl
 
 HOSTNAME = "localhost"  # assuming you are running the server on the same machine
 PORT = 8899
@@ -40,7 +42,7 @@ def get_driver(which_one):
         case "chrome":
             options = webdriver.ChromeOptions()
             options.add_argument('--headless')
-            return webdriver.Chrome(executable_path='client/chromedrive/chromedriver', chrome_options=options)
+            return webdriver.Chrome(executable_path='client/chromedriver_mac_arm64/chromedriver', chrome_options=options)
         case "firefox":
             options = webdriver.FirefoxOptions()
             options.add_argument('--headless')
@@ -119,57 +121,61 @@ def test_website(website):
     
     unfiltered_percentages[website_name] = unfiltered_percentage
     payload_sizes[website_name] = payload_size / 1000 # in kilobytes
-    print("\u2713", website_name, payload_size/1000, "kB", access_times[website_name], "s")
+    print("\u2713", website_name, payload_size/1000, "kB", round(access_times[website_name], 3), "s")
 
+
+def run_repetitions(repetitions, browser, unfiltered=False):
+    """
+    Run the test for a browser a certain number of times. Save the results in an excel file.
+    The excel file is named {filtered/unfiltered}_{browser}_test_results.xlsx, where {filtered/unfiltered} is whether the websites were accessed through the NAISS filter or not.
+    Each repetition is saved in a separate sheet, named run_{repetition_number}.
+
+    Parameters:
+        repetitions (int): the number of times the test should be run
+        browser (str): the browser to be used for the test
+        unfiltered (bool): whether the websites should be accessed through the NAISS filter or not
+    """
+    global unfiltered_percentages, access_times, payload_sizes, driver
+
+    access_times = {website_names[website] : -1 for website in WEBSITES}
+    unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
+    payload_sizes = {website_names[website] : 0 for website in WEBSITES}
+
+    uf = "un" if unfiltered else ""
+
+    for repetition in range(repetitions):
+        print('---- Repetition {} ---- {}'.format(repetition+1, time.strftime("%H:%M", time.localtime())))
+        excel = openpyxl.load_workbook("client/test_results/{}filtered_{}_test_results.xlsx".format(uf, browser))
+        sheet = excel['run_{}'.format(repetition+1)]
+        sheet.delete_rows(2, sheet.max_row)
+        for website in WEBSITES:
+            driver = get_driver(browser)
+            test_website(website)  # collect the data for the current website
+            website_name = website_names[website]
+            new_row = [website_name, unfiltered_percentages[website_name], access_times[website_name], payload_sizes[website_name]]
+            sheet.append(new_row) 
+            driver.quit()
+        excel.save("client/test_results/{}filtered_{}_test_results.xlsx".format(uf, browser))
+
+    print("\u2713", "{}filtered_{} excel written\n".format(uf, browser))
 
 def test_websites(browser):
     """
     Access all the websites using a given browser and write the collected data to an excel file.
-    The excel file is named {filtered/unfiltered}_{browser}_test_results.xlsx, where {filtered/unfiltered} is whether the websites were accessed through the NAISS filter or not.
+    The access is done twice: once with the NAISS filter and once without it.
 
     Parameters:
         browser (str): the browser to be used for accessing the websites
     """
     global unfiltered_percentages, access_times, payload_sizes, driver, PORT
 
+    repetitions = 10 # we are going to use this to collect multiple data points for each website
+
     PORT = 8899  # the port on which the NAISS filter is running (filtered connection)
-    access_times = {website_names[website] : -1 for website in WEBSITES}
-    unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
-    payload_sizes = {website_names[website] : 0 for website in WEBSITES}
-    excel_row_index = 0
+    run_repetitions(repetitions, browser)
 
-    for website in WEBSITES:
-        driver = get_driver(browser)
-        test_website(website)  # collect the data for the current website
-        website_name = website_names[website]
-
-        excel = pd.read_excel("client/test_results/filtered_{}_test_results.xlsx".format(browser))
-        new_row = [website_name, unfiltered_percentages[website_name], access_times[website_name], payload_sizes[website_name]]
-        excel.loc[excel_row_index] = new_row  # fill in a new row of data in the excel file
-        excel_row_index += 1
-
-        excel.to_excel("client/test_results/filtered_{}_test_results.xlsx".format(browser), index=False)
-        driver.quit()
-
-    print("\u2713", "filtered_{} excel written\n".format(browser))
-    PORT = 7777  # the port on which the websites are running (unfiltered connection)
-    access_times = {website_names[website] : -1 for website in WEBSITES}
-    unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
-    payload_sizes = {website_names[website] : 0 for website in WEBSITES}
-    excel_row_index = 0
-
-    for website in WEBSITES:
-        driver =  get_driver(browser)
-        test_website(website)  # collect the data for the current website
-        website_name = website_names[website]
-        excel = pd.read_excel("client/test_results/unfiltered_{}_test_results.xlsx".format(browser))
-        new_row = [website_name, unfiltered_percentages[website_name], access_times[website_name], payload_sizes[website_name]]
-        excel.loc[excel_row_index] = new_row  # fill in a new row of data in the excel file
-        excel_row_index += 1
-        excel.to_excel("client/test_results/unfiltered_{}_test_results.xlsx".format(browser), index=False)
-        driver.quit()
-
-    print("\u2713", "unfiltered_{} excel written\n".format(browser))
+    PORT = 7777
+    run_repetitions(repetitions, browser, True)
     
 
 # test the websites using all the browsers
