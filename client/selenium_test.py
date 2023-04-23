@@ -1,12 +1,11 @@
-import os
+import datetime
 from selenium.webdriver.common.by import By
 from seleniumwire import webdriver # pip install selenium-wire
 import time
 import pandas as pd
+import openpyxl
 
-# This is to be ran from the root of the project
-
-HOSTNAME = "localhost"
+HOSTNAME = "localhost"  # assuming you are running the server on the same machine
 PORT = 8899
 
 WEBSITES = [
@@ -43,7 +42,7 @@ def get_driver(which_one):
         case "chrome":
             options = webdriver.ChromeOptions()
             options.add_argument('--headless')
-            return webdriver.Chrome(executable_path='client/chromedrive/chromedriver', chrome_options=options)
+            return webdriver.Chrome(executable_path='client/chromedriver_mac_arm64/chromedriver', chrome_options=options)
         case "firefox":
             options = webdriver.FirefoxOptions()
             options.add_argument('--headless')
@@ -56,12 +55,22 @@ def get_driver(which_one):
 website_names = {website: website.split("/")[2:][0].split(".")[0] for website in WEBSITES}
 
 def test_website(website):
+    """
+    Access a website and collect the following information:
+        - the time it took to load the website
+        - the transfered payload size
+        - the number of images that were loaded (unfiltered)
+
+    Parameters:
+        website (str): the URL of the website to be accessed
+    """
     global PORT
+
     ADDRESS = "http://{}:{}/".format(HOSTNAME, PORT)
     website_name = website_names[website]
     payload_size = 0
     timer = time.time()
-    driver.get("{}{}".format(ADDRESS, website))
+    driver.get("{}{}".format(ADDRESS, website))  # load the website
 
     access_times[website_name] = time.time() - timer
     website_requests = driver.requests
@@ -76,14 +85,14 @@ def test_website(website):
                 img_requests += 1
 
             if  request.response:
-                if request.response.status_code == 200:
+                if request.response.status_code == 200:  # only count the payload size for 200 responses (successful requests)
                     payload_size += len(request.response.body)
                                     
                 request_response = request.response.status_code
                 requests[request_response].append(request.url)
 
         for response_code in requests.keys():
-            if response_code == 420:
+            if response_code == 420:  # 420 is the custom response given by the NAISS filter to denied image requests
                 if len(requests[420]) == 0:
                     unfiltered_percentage = 100
                 else:
@@ -112,54 +121,65 @@ def test_website(website):
     
     unfiltered_percentages[website_name] = unfiltered_percentage
     payload_sizes[website_name] = payload_size / 1000 # in kilobytes
-    print("\u2713", website_name, payload_size/1000, "kB", access_times[website_name], "s")
+    print("\u2713", website_name, payload_size/1000, "kB", round(access_times[website_name], 3), "s")
 
+
+def run_repetitions(repetitions, browser, unfiltered=False):
+    """
+    Run the test for a browser a certain number of times. Save the results in an excel file.
+    The excel file is named {filtered/unfiltered}_{browser}_test_results.xlsx, where {filtered/unfiltered} is whether the websites were accessed through the NAISS filter or not.
+    Each repetition is saved in a separate sheet, named run_{repetition_number}.
+
+    Parameters:
+        repetitions (int): the number of times the test should be run
+        browser (str): the browser to be used for the test
+        unfiltered (bool): whether the websites should be accessed through the NAISS filter or not
+    """
+    global unfiltered_percentages, access_times, payload_sizes, driver
+
+    access_times = {website_names[website] : -1 for website in WEBSITES}
+    unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
+    payload_sizes = {website_names[website] : 0 for website in WEBSITES}
+
+    uf = "un" if unfiltered else ""
+
+    for repetition in range(repetitions):
+        print('---- Repetition {} ---- {}'.format(repetition+1, time.strftime("%H:%M", time.localtime())))
+        excel = openpyxl.load_workbook("client/test_results/{}filtered_{}_test_results.xlsx".format(uf, browser))
+        sheet = excel['run_{}'.format(repetition+1)]
+        sheet.delete_rows(2, sheet.max_row)
+        for website in WEBSITES:
+            driver = get_driver(browser)
+            test_website(website)  # collect the data for the current website
+            website_name = website_names[website]
+            new_row = [website_name, unfiltered_percentages[website_name], access_times[website_name], payload_sizes[website_name]]
+            sheet.append(new_row) 
+            driver.quit()
+        excel.save("client/test_results/{}filtered_{}_test_results.xlsx".format(uf, browser))
+
+    print("\u2713", "{}filtered_{} excel written\n".format(uf, browser))
 
 def test_websites(browser):
+    """
+    Access all the websites using a given browser and write the collected data to an excel file.
+    The access is done twice: once with the NAISS filter and once without it.
+
+    Parameters:
+        browser (str): the browser to be used for accessing the websites
+    """
     global unfiltered_percentages, access_times, payload_sizes, driver, PORT
-    PORT = 8899
-    access_times = {website_names[website] : -1 for website in WEBSITES}
-    unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
-    payload_sizes = {website_names[website] : 0 for website in WEBSITES}
-    excel_row_index = 0
-    for website in WEBSITES:
-        driver = get_driver(browser)
-        test_website(website)
-        website_name = website_names[website]
 
-        excel = pd.read_excel("client/test_results/filtered_{}_test_results.xlsx".format(browser))
-        new_row = [website_name, unfiltered_percentages[website_name], access_times[website_name], payload_sizes[website_name]]
-        excel.loc[excel_row_index] = new_row
-        excel_row_index += 1
+    repetitions = 10 # we are going to use this to collect multiple data points for each website
 
-        excel.to_excel("client/test_results/filtered_{}_test_results.xlsx".format(browser), index=False)
-        driver.quit()
+    PORT = 8899  # the port on which the NAISS filter is running (filtered connection)
+    run_repetitions(repetitions, browser)
 
-    print("\u2713", "filtered_{} excel written\n".format(browser))
     PORT = 7777
-    access_times = {website_names[website] : -1 for website in WEBSITES}
-    unfiltered_percentages = {website_names[website] : -1 for website in WEBSITES}
-    payload_sizes = {website_names[website] : 0 for website in WEBSITES}
-
-    excel_row_index = 0
-    for website in WEBSITES:
-        driver =  get_driver(browser)
-        test_website(website)
-        website_name = website_names[website]
-        excel = pd.read_excel("client/test_results/unfiltered_{}_test_results.xlsx".format(browser))
-        new_row = [website_name, unfiltered_percentages[website_name], access_times[website_name], payload_sizes[website_name]]
-        excel.loc[excel_row_index] = new_row
-        excel_row_index += 1
-        excel.to_excel("client/test_results/unfiltered_{}_test_results.xlsx".format(browser), index=False)
-        driver.quit()
-
-    print("\u2713", "unfiltered_{} excel written\n".format(browser))
+    run_repetitions(repetitions, browser, True)
     
-        
-# browsers = ['chrome', 'firefox', 'edge', 'safari']
+
+# test the websites using all the browsers
 browsers = ['chrome', 'firefox', 'edge']
-# browsers = ['safari']
-# browsers = ['firefox']
 for browser in browsers:
     test_websites(browser)
 
